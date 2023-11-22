@@ -22,6 +22,9 @@ header {
 .main {
     padding-top: 110px;
 }
+.main-admin {
+    padding-top: 50px !important;
+}
 
 .header_top {
     display: flex;
@@ -29,6 +32,10 @@ header {
     align-items: center;
     height: 60px;
 
+}
+
+.admin_header_top {
+    text-align: center;
 }
 
 .header_top-social i {
@@ -689,13 +696,17 @@ footer {
 .collectionlist>.col.l-12 {
     margin-bottom: 12px;
 }
-.signinsignup>.row{
+
+.signinsignup>.row {
     margin: 20px 0;
 }
-.signinsignup-input{
+
+.signinsignup-input {
     margin-top: 20px;
 }
-.signin h5,.signup h5{
+
+.signin h5,
+.signup h5 {
     font-family: var(--font_NunitoSans);
     color: #363636;
     font-weight: 500;
@@ -703,7 +714,7 @@ footer {
     font-size: 20px;
 }
 
-.signinsignup-input input{
+.signinsignup-input input {
     color: #767676;
     border: 1px solid #ccc;
     padding: 12px 10px;
@@ -711,26 +722,49 @@ footer {
     font-size: 14px;
     background: #f7f7f7;
 }
-.action-signin{
+
+.action-signin {
     display: flex;
     justify-content: space-between;
     padding: 12px 0;
 }
+
 .memorizepass {
     display: flex;
 }
-.memorizepass p{
+
+.memorizepass p {
     cursor: pointer;
     font-family: var(--font_NunitoSans);
     color: var(--color30);
     margin-left: 12px;
 }
-.forgetpass a{
-   text-decoration: none;
+
+.forgetpass a,
+.forgetpass_edit a {
+    text-decoration: none;
     font-family: var(--font_NunitoSans);
     color: var(--color30);
 }
-.button_actsigninsignup{
+
+.forgetpass_edit {
+    margin-top: 10px;
+}
+.admin_add_information-button{
+    width: 200px;
+    height: 40px;
+    border: none;
+    background-color: #000000;
+    border-radius: 6px;
+    margin: 4px 0;
+}
+.admin_add_information-button{
+   font-weight: 600;
+   font-size: 16px;
+   color: white;
+   font-family: var(--font_NunitoSans);
+}
+.button_actsigninsignup {
     padding: 8px 28px;
     background-color: black;
     color: white;
@@ -739,11 +773,776 @@ footer {
     border-radius: 4px;
     margin-top: 20px;
 }
-.signin,.signup{
+.namebst_searchz{
+    padding: 4px;
+    width: 300px;
+}
+.admin_add_information .admin_imgnow{
+    margin-top: 6px;
+    width: 140px;
+    height: 140px;
+}
+.admin_add_information {
+    margin: 8px 0;
+    font-family: var(--font_NunitoSans);
+}
+.admin_add_information select{
+    width: 200px;
+}
+.admin_add_information p{
+    margin: 0 0 4px 3px;
+}
+.admin_add_information > input{
+    color: #767676;
+    border: 1px solid #ccc;
+    padding: 12px 10px;
+    width: 100%;
+    font-size: 14px;
+    background: #f7f7f7;
+}
 
+.signin,
+.admin_add_information-wrap {
+    flex-direction: column;
+    width: 100%;
+}
+
+.signup,
+.admin_add_information-wrap {
     padding: 32px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.newfocus>img {
+    width: 100%;
+}
+
+.listnews>.group-news {
+    display: block;
+    display: flex;
+    height: 120px;
+    text-decoration: none;
+    font-family: var(--font_NunitoSans);
+}
+
+.listnews-wrap .listnews-title {
+    font-family: var(--font_NunitoSans);
+    font-size: 28px;
+    color: var(--color30);
+    position: relative;
+}
+
+.listnews-wrap .listnews-title::after {
+    content: "";
+    height: 2px;
+    width: 200px;
+    position: absolute;
+    background-color: rgb(241, 241, 241);
+    top: 20px;
+    left: 150px;
+}
+
+.group-news {
+    margin-bottom: 10px;
+}
+
+.group-news:hover .group-news__title {
+    text-decoration: overline;
+    transform: 0.4s;
+}
+
+.group-news-content {
+    padding-left: 12px;
+}
+
+.listnews>.group-news img {
+    width: 200px;
+    height: 100%;
+}
+
+.group-news__title {
+    height: 60px;
+    line-height: 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    color: var(--color30);
+    font-size: 18px;
+}
+
+.group-news__time {
+    font-weight: 500;
+    color: var(--color10);
+    margin-top: 20px;
+}
+
+.group-news__time i {
+    padding-right: 8px;
+}
+
+.newfocus-content {
+    display: flex;
+    padding-top: 20px;
+}
+
+.newfocus-content-time {
+    font-family: var(--font_NunitoSans);
+    color: var(--color30);
+    font-size: 16px;
+}
+
+.newfocus-content-time i {
+    padding-right: 4px;
+}
+
+.newfocus-content-title {
+    height: 60px;
+    line-height: 30px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    color: var(--color30);
+    font-size: 26px;
+    font-family: var(--font_NunitoSans);
+    font-weight: 500;
+}
+
+.pagenews>.row {
+    overflow: hidden;
+    height: 558px;
+}
+
+.wrap_newsale {
+    font-size: var(--font_NunitoSans);
+    color: var(--color30);
+}
+
+.wrap_newsale .newsale-time {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.wrap_newsale img {
+    width: 100%;
+}
+
+.pagenews>div {
+    margin: 30px 0;
+}
+
+.product_incart-information-quantity {
+    display: flex;
+}
+
+.product_incart {
+    position: relative;
+    display: flex;
+    text-decoration: none;
+    font-family: var(--font_NunitoSans);
+    color: var(--color30);
+    height: 140px;
+    padding: 20px;
+    align-items: center;
+}
+
+.product_incart::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 35px;
+    width: 300px;
+    height: 3px;
+    background-color: rgb(194, 194, 194);
+}
+
+.deleteprdincart {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+
+.actcart {
+    padding: 0 16px;
+}
+
+.actcart button:hover {
+    background-color: black;
+    color: white;
+}
+
+.wrap_order {
+    padding-top: 20px;
+}
+
+.actcart button:hover>* {
+    background-color: black;
+    color: white;
+}
+
+.actcart button>* {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color30);
+}
+
+.actcart button {
+    width: 100%;
+    border: none;
+    padding: 20px 0;
+    margin: 12px 0;
+    border-radius: 40px;
+}
+
+.product_incart-information-name {
+    width: 180px;
+    height: 44px;
+    line-height: 22px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+}
+
+.product_incart-information {
+    padding-left: 12px;
+}
+
+.product_incart img {
+    height: 100px;
+    width: 100px;
+}
+
+.carthidden {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(136, 136, 136, 0.3);
+}
+
+.carthidden .cart_content {
+    width: 360px;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    right: 0;
+}
+
+.wrap_newsale-title {
+    height: 40px;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+}
+
+.newsale .newSale-title {
+    font-size: 32px;
+    text-align: center;
+    font-family: var(--font_NunitoSans);
+    padding: 30px 0;
+    position: relative;
+}
+
+.newsale .newSale-title::after {
+    content: "";
+    height: 2px;
+    width: 200px;
+    position: absolute;
+    background-color: rgb(207, 207, 207);
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.newsale {
+    margin: 30px 0;
+}
+
+.newsale .newsale-banner {
+    padding-top: 28%;
+    background-size: cover;
+}
+
+.order-title {
+    font-size: 20px;
+    font-family: var(--font_NunitoSans);
+    font-weight: 600;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.row_order {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row_order>.payemail {
+    width: 60%;
+
+}
+
+.row_order>.paysdt {
+    width: 38%;
+}
+
+.payinformation input {
+    margin-right: 12px;
+}
+
+.payment>label {
+    font-family: var(--font_NunitoSans);
+}
+
+
+.buyerinformation>input,
+.row_order>input {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(240, 240, 240);
+    color: var(--color30);
+    border: 1px solid rgb(214, 214, 214);
+    outline: none;
+    margin-bottom: 16px;
+}
+
+.billinformation {
+    font-family: var(--font_NunitoSans);
+}
+
+.billinformation table {
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.billinformation img {
+    width: 120px;
+    height: 120px;
+}
+
+.carttable-price {
+
+    font-weight: 600;
+}
+
+.iconsearchprd {
+    position: absolute;
+    top: 24px;
+    right: 14px;
+}
+
+.listproduct-content .product:hover .iconsearchprd {
+    animation: shake 1s;
+}
+
+.listproduct-content .product:hover .iconsearchprd i {
+    background-color: rgb(172, 172, 172);
+    color: white;
+}
+
+.iconsearchprd::after {
+    position: absolute;
+    width: 100px;
+    line-height: 20px;
+    background-color: rgb(0, 0, 0);
+    top: -4px;
+    color: white;
+    font-size: 12px;
+    padding: 4px;
+    font-family: var(--font_NunitoSans);
+    right: 60px;
+    content: "Xem chi tiết";
+    display: none;
+}
+
+.iconsearchprd::before {
+    content: "";
+    position: absolute;
+    border: 14px solid rgb(0, 0, 0);
+    border-color: transparent transparent transparent #000000;
+    top: -4px;
+    right: 33px;
+    display: none;
+}
+
+.iconsearchprd a {
+    text-decoration: none;
+}
+
+.iconsearchprd a i {
+    padding: 16px;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.carttable-delete a {
+    text-decoration: none;
+}
+
+.carttable .btnorder button {
+    padding: 10px 60px;
+    border: none;
+    background-color: black;
+    border-radius: 4px;
+}
+
+.carttable .btnorder a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.carttable {
+    width: 100%;
+    text-align: center;
+    font-family: var(--font_NunitoSans);
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.carttable img {
+    width: 180px;
+    height: 180px;
+}
+
+.carttable th,
+.carttable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.billinformation table th,
+.billinformation td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.toltalbill>td {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.toltalbill>td:last-child {
+    color: red;
+}
+
+.ordered {
+    padding: 10px 70px;
+    border: none;
+    background: black;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px;
+    margin: 12px 0;
+}
+
+.header_admin {
+    background-color: black;
+    color: white;
+    font-family: var(--font_NunitoSans);
+    padding: 12px 0;
+}
+
+.header_admin .admin_title {
+    text-align: center;
+}
+
+.header_admin>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action_admin .adminfunction {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 12px;
+}
+
+.action_admin .adminfunction>div {
+    background-color: #dfdfdf;
+    padding: 80px 0;
+    border-radius: 12px;
+}
+
+.adminfunction i {
+    padding: 16px;
+    background-color: white;
+    border-radius: 100%;
+    font-size: 26px;
+    color: black;
+}
+
+.adminfunction p {
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: var(--font_NunitoSans);
+    font-weight: 600;
+}
+
+.adminfunction:hover i {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.adminaction_title {
+    font-size: 28px;
+    font-family: var(--font_NunitoSans);
+    padding-bottom: 22px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.adminaction_title::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 300px;
+    height: 3px;
+    background-color: gray;
+}
+
+.table_admin-id {
+    width: 50px;
+}
+
+.table_admin {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font_NunitoSans);
+    margin-bottom: 20px;
+    border: 1px solid rgb(192, 192, 192);
+}
+
+.table_admin-detail {
+    width: 400px;
+}
+
+.table_admin-img {
+    width: 170px;
+}
+
+.table_admin img {
+    width: 160px;
+    height: 160px;
+}
+
+.table_admin-tonkho {
+    width: 80px;
+}
+
+.table_admin th,
+.table_admin td,
+.detail__billth,
+.detail__bill td {
+    border: 1px solid rgb(192, 192, 192);
+    border-bottom: 10px;
+}
+
+.table_admin-act a {
+    text-decoration: none;
+    color: white;
+}
+
+.table_admin-daycreate {
+    width: 200px;
+}
+
+.table_admin-address {
+    width: 380px;
+}
+
+.table_admin-phone {
+    width: 230px;
+}
+
+.table_admin-sumprice {
+    width: 180px;
+}
+
+.detail__bill tr th,
+.detail__bill tr td {
+    padding: 6px 0;
+}
+
+.detail__bill-prdimg img {
+    width: 160px;
+    height: 160px;
+}
+
+.table_admin-detail__click {
+    position: relative;
+}
+
+.detail__bill-wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(223, 223, 223, 0.6);
+}
+
+.action_admin form {
+    display: flex;
+    font-weight: var(--font_NunitoSans);
+    margin: 10px 0 30px 0;
+}
+
+tr td {
+    padding: 4px 0;
+}
+
+.nameprd_searchz {
+    padding: 6px 8px;
+    width: 340px;
+}
+
+.action_admin form select {
+    padding: 6px;
+    margin: 0 4px;
+}
+
+table tr .admin-content_news {
+    padding: 0 !important;
+}
+
+.admin-content_title {}
+
+.admin-content_news p {
+    height: 100px;
+    overflow-y: scroll;
+}
+
+.action_admin form .admin_timeprd {
+    display: flex;
+    align-items: center;
+}
+
+.action_admin form .admin_timeprd p {
+    padding: 6px;
+}
+
+.action_admin form .admin_timeprd input {
+    padding: 6px;
+    margin: 0 4px;
+}
+
+.table_admin-act__news {
+    width: 200px;
+}
+
+.detail__bill-title {
+    display: flex;
+    color: white;
+    background-color: black;
+    justify-content: space-between;
+    padding: 12px 60px;
+    align-items: center;
+}
+
+.table_admin-content_news {
+    width: 600px;
+}
+
+.table_admin-news-img {
+    width: 100px;
+    height: 100px;
+}
+
+.table_admin-content_news div {
+    overflow-y: scroll;
+    height: 100px;
+}
+
+.detail__bill {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    top: 12%;
+    padding: 12px;
+    font-family: var(--font_NunitoSans);
+}
+
+.detail__bill table {
+    width: 1240px;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+
+.table_admin-sumprice>p,
+.detail__bill-prdsumprice p {
+    color: red;
+    font-weight: 600;
+}
+
+.table_admin-detail {
+    font-size: 20px;
+}
+
+.admin_ordered {
+    margin-left: 14px;
+    padding: 10px 30px;
+    border: none;
+    background: black;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px
+}
+
+.table_admin-act button {
+    padding: 8px 30px;
+    margin-bottom: 4px;
+    border: none;
+    font-weight: 500;
+    font-family: var(--font_NunitoSans);
+    border-radius: 4px;
+
+}
+
+.admin_updateprd {
+    background-color: rgb(107, 165, 0);
+}
+
+.admin_deletex {
+    background-color: rgb(165, 0, 0)
+}
+
+.admin_deletey {
+    background-color: rgb(151, 165, 0);
+}
+
+.admin_addinformation {
+    margin: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin_addinformation a {
+    text-decoration: none;
+    background-color: #000000;
+    color: white;
+    padding: 8px 30px;
+    font-family: var(--font_NunitoSans);
+    border-radius: 6px;
+}
+
 @keyframes moveRight {
     0% {
         transform-origin: 0% 0%;
@@ -754,5 +1553,28 @@ footer {
     100% {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: rotate(-10deg);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: rotate(10deg);
     }
 }

@@ -50,8 +50,8 @@
                             <p class="users_cart-quantity">6</p>
                         </i>
                     </div>
-                      <!-- CART -->
-                      <div class="carthidden">
+                    <!-- CART -->
+                    <div class="carthidden">
                         <div class="cart_content">
                             <ul>
                                 <li>
@@ -64,7 +64,8 @@
                                                 <p>4</p>
                                             </div>
                                         </div>
-                                      <i class="ti-close deleteprdincart"></i></a>
+                                        <i class="ti-close deleteprdincart"></i>
+                                    </a>
                                     </a>
                                     <a href="" class="product_incart">
                                         <img src="content/images/product/nhan1.jpg" alt="">
@@ -75,7 +76,8 @@
                                                 <p>4</p>
                                             </div>
                                         </div>
-                                      <i class="ti-close deleteprdincart"></i></a>
+                                        <i class="ti-close deleteprdincart"></i>
+                                    </a>
                                     </a>
                                     <a href="" class="product_incart">
                                         <img src="content/images/product/nhan1.jpg" alt="">
@@ -86,7 +88,8 @@
                                                 <p>4</p>
                                             </div>
                                         </div>
-                                      <i class="ti-close deleteprdincart"></i></a>
+                                        <i class="ti-close deleteprdincart"></i>
+                                    </a>
                                     </a>
                                 </li>
                             </ul>
@@ -150,53 +153,83 @@
         </header>
         <!-- END HEADER -->
         <div class="main">
-            <div class="grid wide signinsignup">
-                <div class="row">
-                    <div class="col l-6">
-                        <div class="signin">
-                            <h5>Đăng nhập</h5>
-                            <form action="">
-                                <div class="signinsignup-input">
-                                    <input type="text" placeholder="Tên đăng nhập" name="signin">
+            <div class="grid wide">
+                <form action="">
+                    <div class="row wrap_order">
+                        <div class="col l-8">
+                            <div class="buyerinformation">
+                                <h5 class="order-title">
+                                    Thông tin người mua
+                                </h5>
+                                <input type="text" placeholder="Họ và tên của bạn">
+                                <div class="row_order">
+                                    <input type="text" placeholder="Email của bạn" class="payemail">
+                                    <input type="text" placeholder="Số điện thoại của bạn" class="paysdt">
                                 </div>
-                                <div class="signinsignup-input">
-                                    <input type="password" placeholder="Mật khẩu" name="passsignin">
-                                </div>
-                                <div class="action-signin">
-                                    <div class="memorizepass">
-                                            <input type="checkbox" name="memorizepass">
-                                            <p>Nhớ mật khẩu</p>
+                                <h5 class="order-title">Địa chỉ nhận hàng</h5>
+                                <input type="text" placeholder="Địa chỉ nhận hàng">
+                                <input type="text" placeholder="Địa chỉ chi tiết">
+                                <h5 class="order-title">Hình thức thanh toán</h5>
+                                <div class="payinformation">
+                                    <div class="payment">
+                                        <input type="radio" name="payinformation" id="">
+                                        <label for="payinformation">
+                                            Thanh toán tiền mặt khi nhận hàng (COD)
+                                        </label>
                                     </div>
-                                    <p class="forgetpass"><a href="">Quên mật khẩu ?</a></p>
+                                    <div class="payment">
+                                        <input type="radio" name="payinformation" id="">
+                                        <label for="payinformation">
+                                            Thanh toán bằng thẻ tín dụng
+                                        </label>
+                                    </div>
                                 </div>
-                                <button type="submit" class="button_actsigninsignup">Đăng nhập</button>
-                            </form>
+                            </div>
+                        </div>
+                        <div class="col l-4">
+                            <div class="billinformation">
+                                <h5 class="order-title">Thông tin đơn hàng</h5>
+                                <table>
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Giá</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="content/images/product/nhan1.jpg" alt="">
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            7.234.000vnđ
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="content/images/product/nhan1.jpg" alt="">
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            7.234.000vnđ
+                                        </td>
+                                    </tr>
+                                    <tr class="toltalbill">
+                                        <td colspan="2">Thành tiền</td>
+                                        <td>21.234.000 nvđ</td>
+                                    </tr>
+                                </table>
+                                <button type="submit" class="ordered">Đặt mua</button>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="col l-6">
-                        <div class="signup">
-                            <h5>Đăng ký</h5>
-                            <form action="">
-                                <div class="signinsignup-input">
-                                    <input type="text" placeholder="Tên đăng nhập" name="namesignup">
-                                </div>
-                                <div class="signinsignup-input">
-                                    <input type="password" placeholder="Mật khẩu" name="passsignup">
-                                </div>
-                                <div class="signinsignup-input">
-                                    <input type="password" placeholder="Xác nhận khẩu" name="repasssignup">
-                                </div>
-                                <div class="signinsignup-input">
-                                    <input type="text" placeholder="Số điện thoại" name="sdtsignup">
-                                </div>
-                                <button type="submit" class="button_actsigninsignup">Đăng Ký</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
+
         <footer>
             <div class="grid wide footer-top">
                 <div class="row">

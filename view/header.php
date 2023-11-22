@@ -14,9 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="content/font/fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,200;6..12,500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,200;6..12,500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="content/font/Themifi_icon - Sao chép/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="content/Css/style.css">
@@ -50,8 +48,8 @@
                             <p class="users_cart-quantity">6</p>
                         </i>
                     </div>
-                      <!-- CART -->
-                      <div class="carthidden">
+                    <!-- CART -->
+                    <div class="carthidden">
                         <div class="cart_content">
                             <ul>
                                 <li>
@@ -64,7 +62,8 @@
                                                 <p>4</p>
                                             </div>
                                         </div>
-                                      <i class="ti-close deleteprdincart"></i></a>
+                                        <i class="ti-close deleteprdincart"></i>
+                                    </a>
                                     </a>
                                     <a href="" class="product_incart">
                                         <img src="content/images/product/nhan1.jpg" alt="">
@@ -75,7 +74,8 @@
                                                 <p>4</p>
                                             </div>
                                         </div>
-                                      <i class="ti-close deleteprdincart"></i></a>
+                                        <i class="ti-close deleteprdincart"></i>
+                                    </a>
                                     </a>
                                     <a href="" class="product_incart">
                                         <img src="content/images/product/nhan1.jpg" alt="">
@@ -86,7 +86,8 @@
                                                 <p>4</p>
                                             </div>
                                         </div>
-                                      <i class="ti-close deleteprdincart"></i></a>
+                                        <i class="ti-close deleteprdincart"></i>
+                                    </a>
                                     </a>
                                 </li>
                             </ul>
@@ -101,8 +102,8 @@
             </div>
             <div class="header_nav grid wide">
                 <ul class="header_navs1">
-                    <li><a href="">TRANG CHỦ</a></li>
-                    <li class="position-relative hoverproduct"><a href="">SẢN PHẨM</a>
+                    <li><a href="index.php">TRANG CHỦ</a></li>
+                    <li class="position-relative hoverproduct"><a href="index.php?act=listsanpham">SẢN PHẨM</a>
                         <i class="ti-angle-down"></i>
                         <div class="product_navs2 navs2">
                             <ul>
@@ -132,8 +133,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="position-relative hoverjewewedding"><a href="">TRANG SỨC CƯỚI</a><i
-                            class="ti-angle-down"></i>
+                    <li class="position-relative hoverjewewedding"><a href="">TRANG SỨC CƯỚI</a><i class="ti-angle-down"></i>
                         <div class="navs2 jewewedding_navs2">
                             <ul>
                                 <li><a href="">Nhẫn cưới</a></li>
@@ -142,111 +142,9 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="">BỘ SƯU TẬP</a> <i class="ti-angle-down"></i></li>
-                    <li><a href="">TIN TỨC</a></li>
+                    <li><a href="index.php?act=bosuutap">BỘ SƯU TẬP</a> <i class="ti-angle-down"></i></li>
+                    <li><a href="index.php?act=tintuc">TIN TỨC</a></li>
                     <li><a href="">LIÊN HỆ</a></li>
                 </ul>
             </div>
         </header>
-        <!-- END HEADER -->
-        <div class="main">
-            <div class="grid wide signinsignup">
-                <div class="row">
-                    <div class="col l-6">
-                        <div class="signin">
-                            <h5>Đăng nhập</h5>
-                            <form action="">
-                                <div class="signinsignup-input">
-                                    <input type="text" placeholder="Tên đăng nhập" name="signin">
-                                </div>
-                                <div class="signinsignup-input">
-                                    <input type="password" placeholder="Mật khẩu" name="passsignin">
-                                </div>
-                                <div class="action-signin">
-                                    <div class="memorizepass">
-                                            <input type="checkbox" name="memorizepass">
-                                            <p>Nhớ mật khẩu</p>
-                                    </div>
-                                    <p class="forgetpass"><a href="">Quên mật khẩu ?</a></p>
-                                </div>
-                                <button type="submit" class="button_actsigninsignup">Đăng nhập</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="col l-6">
-                        <div class="signup">
-                            <h5>Đăng ký</h5>
-                            <form action="">
-                                <div class="signinsignup-input">
-                                    <input type="text" placeholder="Tên đăng nhập" name="namesignup">
-                                </div>
-                                <div class="signinsignup-input">
-                                    <input type="password" placeholder="Mật khẩu" name="passsignup">
-                                </div>
-                                <div class="signinsignup-input">
-                                    <input type="password" placeholder="Xác nhận khẩu" name="repasssignup">
-                                </div>
-                                <div class="signinsignup-input">
-                                    <input type="text" placeholder="Số điện thoại" name="sdtsignup">
-                                </div>
-                                <button type="submit" class="button_actsigninsignup">Đăng Ký</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <div class="grid wide footer-top">
-                <div class="row">
-                    <div class="col l-3">
-                        <div class="footer-content">
-                            <div class="header_top-namestore">
-                                <p>Jewelryn3.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col l-3">
-                        <div class="footer-content">
-                            <p class="title-box">LIÊN HỆ</p>
-                            <ul>
-                                <li><i class="ti-home"></i>Trinh Van Bo _ FPT Polytechnic</li>
-                                <li><i class="ti-headphone"></i>+0962350923 - 1800-6886-666</li>
-                                <li><i class="ti-email"></i>chamsocJewelryn3@gmail.com</li>
-                                <li><i class="ti-location-pin"></i>Hệ thống cửa hàng</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col l-3">
-                        <div class="footer-content">
-                            <p class="title-box">VỀ Jewelryn3.</p>
-                            <ul>
-                                <li>Chính Sách Bảo Mật</li>
-                                <li>Điều khoản sự dụng</li>
-                                <li>Chính sách đổi trả</li>
-                                <li>Hướng dấn mua hàng</li>
-                                <li>Hướng dẫn đo size</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col l-3">
-                        <div class="footer-content footer-content-network">
-                            <p class="title-box">KẾT NỐI VỚI CHÚNG TÔI</p>
-                            <ul>
-                                <li><i class="fa-brands fa-facebook"><a href=""></a></i></li>
-                                <li><i class="fa-brands fa-instagram"><a href=""></a></i></li>
-                                <li><i class="fa-brands fa-youtube"><a href=""></a></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-license">
-                <p>Powered By Jewelryn3. Fine Jewelry © 2023</p>
-            </div>
-        </footer>
-    </div>
-</body>
-
-</html>
