@@ -12,26 +12,57 @@ function query_mathang()
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
+//query 8 sp 
+function load8_sanpham_home()
+{
+    $sql = "SELECT * FROM sanpham WHERE role_prd = 0 ORDER BY ma_sp DESC LIMIT 0,8";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
+//query 16 sp 
+function load16_sanpham()
+{
+    $sql = "SELECT * FROM sanpham WHERE role_prd = 0 ORDER BY ma_sp DESC LIMIT 0,16";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
+//query 4 sp trang home user
+function load4_sanpham_home()
+{
+    $sql = "SELECT * FROM sanpham WHERE role_prd = 0 ORDER BY ma_sp DESC LIMIT 0,4";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
+
+//query 1 anh sp trang home user tu ma_sp
+
+function load_sanpham_img_home($ma_sp)
+{
+    $sql = "SELECT * FROM anhsanpham WHERE ma_sp = '$ma_sp'";
+    $list_img_prd =  pdo_query_one($sql);
+    return $list_img_prd;
+}
+
 //query_sanpham
 function query_sanpham()
 {
     $sql = "SELECT * FROM sanpham WHERE role_prd=0";
-    $listmathang = pdo_query($sql);
-    return $listmathang;
+    $list_prd = pdo_query($sql);
+    return $list_prd;
 }
 //quẻy san pham trong thung rac
 function query_sanpham_reduce()
 {
     $sql = "SELECT * FROM sanpham WHERE role_prd=1";
-    $listmathang = pdo_query($sql);
-    return $listmathang;
+    $list_prd_reduce = pdo_query($sql);
+    return $list_prd_reduce;
 }
 // khoi phuc san pham tu thung rac
 function restore_sanpham_reduce($code_sp)
 {
     $sql = "UPDATE sanpham SET role_prd=0 WHERE ma_sp = '$code_sp'";
-    $listmathang = pdo_query($sql);
-    return $listmathang;
+    $list_prd_reduce = pdo_query($sql);
+    return $list_prd_reduce;
 }
 //query_one_sanpham
 function query_one_sanpham($code_prd)
@@ -48,8 +79,14 @@ function query_one_anhsp($code_prd)
     return $one_imgsanpham;
 }
 
+function stagnation_prd(){
+    $sql = "SELECT * FROM sanpham WHERE role_prd=0 ORDER BY soluong_tonkho DESC LIMIT 0,8";
+    $listmathang = pdo_query($sql);
+    return $listmathang;
+}
 //querry all ảnh sản phẩm
-function anh_sanpham(){
+function anh_sanpham()
+{
     $sql = "SELECT * FROM anhsanpham";
     $listimg_sp = pdo_query($sql);
     return $listimg_sp;
@@ -111,7 +148,6 @@ function softdelete_prd_fct($code_sp)
     $sql = "UPDATE sanpham SET role_prd = 1 WHERE ma_sp= '$code_sp'";
     pdo_execute($sql);
 }
-
 
 //Tạo mã sản phẩm
 

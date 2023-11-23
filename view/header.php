@@ -1,3 +1,9 @@
+<?php 
+ $listmathang_mathang = query_loai_mathang();
+ $listchatlieu =query_chatlieu();
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -107,7 +113,7 @@
                         <i class="ti-angle-down"></i>
                         <div class="product_navs2 navs2">
                             <ul>
-                                <li><a href="" class="product_navs2-title product_navs2-gold">TRANG SỨC VÀNG</a></li>
+                                <li><a href="index.php?act=listsanpham&material=1&" class="product_navs2-title product_navs2-gold">TRANG SỨC VÀNG</a></li>
                                 <li><a href="">Nhẫn vàng</a></li>
                                 <li><a href="">Bông tai vàng</a></li>
                                 <li><a href="">Dây chuyền vàng</a></li>

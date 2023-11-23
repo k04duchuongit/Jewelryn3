@@ -1,5 +1,8 @@
 <?php
-include 'view/header.php';
+include './model/pdo.php';
+include './model/sanpham.php';
+include './model/header.php'
+include 'view/handle_header.php';
 
 if (isset($_GET['act']) && $_GET['act'] != '') {
     $act = $_GET['act'];
@@ -20,6 +23,8 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             include 'view/giohang.php';
             break;
         case "listsanpham":
+            $prd_16 = load16_sanpham();
+            $stagnation_prds = stagnation_prd();
             include 'view/listsanpham.php';
             break;
         case "tintuc":
@@ -33,6 +38,8 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             break;
     }
 } else {
+    $prd_inhome8 = load8_sanpham_home();
+    $prd_inhome4 = load4_sanpham_home();
     include 'view/home.php';
 }
 

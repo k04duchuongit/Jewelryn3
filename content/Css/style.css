@@ -240,6 +240,7 @@ header {
 
 .listproduct-content .product {
     text-align: center;
+    display: block;
 }
 
 .listproduct-content .product .product_img {
