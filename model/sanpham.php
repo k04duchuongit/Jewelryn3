@@ -5,6 +5,13 @@ function query_chatlieu()
     $listchatlieu = pdo_query($sql);
     return $listchatlieu;
 }
+//query mặt hàng
+function query_loai_mathang()
+{
+    $sql = "SELECT * FROM mathang";
+    $listmathang = pdo_query($sql);
+    return $listmathang;
+}
 
 function query_mathang()
 {
@@ -19,13 +26,32 @@ function load8_sanpham_home()
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
-//query 16 sp 
-function load16_sanpham()
+//querry product with collection
+function load_prd_collection($id_collection)
 {
-    $sql = "SELECT * FROM sanpham WHERE role_prd = 0 ORDER BY ma_sp DESC LIMIT 0,16";
+    $sql = "SELECT * FROM sanpham WHERE role_prd = 0 AND id_bst =$id_collection ORDER BY ma_sp DESC LIMIT 0,16";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
+
+//query 16 sp 
+function load16_sanpham($id_chatlieu, $id_mathang)
+{
+    if (!empty($id_chatlieu) && !empty($id_mathang)) {
+        $sql = "SELECT * FROM sanpham WHERE role_prd = 0 AND id_chatlieu = $id_chatlieu AND id_mathang = $id_mathang ORDER BY ma_sp DESC LIMIT 0,16";
+        $listsanpham = pdo_query($sql);
+        return $listsanpham;
+    } else if (!empty($id_chatlieu)) {
+        $sql = "SELECT * FROM sanpham WHERE role_prd = 0 AND id_chatlieu = $id_chatlieu ORDER BY ma_sp DESC LIMIT 0,16";
+        $listsanpham = pdo_query($sql);
+        return $listsanpham;
+    } else {
+        $sql = "SELECT * FROM sanpham WHERE role_prd = 0 ORDER BY ma_sp DESC LIMIT 0,16";
+        $listsanpham = pdo_query($sql);
+        return $listsanpham;
+    }
+}
+
 //query 4 sp trang home user
 function load4_sanpham_home()
 {
@@ -79,7 +105,8 @@ function query_one_anhsp($code_prd)
     return $one_imgsanpham;
 }
 
-function stagnation_prd(){
+function stagnation_prd()
+{
     $sql = "SELECT * FROM sanpham WHERE role_prd=0 ORDER BY soluong_tonkho DESC LIMIT 0,8";
     $listmathang = pdo_query($sql);
     return $listmathang;

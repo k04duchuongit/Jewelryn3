@@ -5,11 +5,9 @@ function query_bosuutap($namesearch)
     if (!empty($namesearch)) {
         $sql = "SELECT * FROM bosuutap WHERE ten_bst LIKE '%$namesearch%'";
         $listbosuutap = pdo_query($sql);
-        echo '1';
     } else {
         $sql = "SELECT * FROM bosuutap";
         $listbosuutap = pdo_query($sql);
-        echo '2';
     }
     return $listbosuutap;
 }

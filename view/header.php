@@ -1,7 +1,7 @@
-<?php 
- $listmathang_mathang = query_loai_mathang();
- $listchatlieu =query_chatlieu();
- 
+<?php
+$listmathang_mathang = query_loai_mathang();
+$listchatlieu = query_chatlieu();
+
 ?>
 
 <!DOCTYPE html>
@@ -112,31 +112,19 @@
                     <li class="position-relative hoverproduct"><a href="index.php?act=listsanpham">SẢN PHẨM</a>
                         <i class="ti-angle-down"></i>
                         <div class="product_navs2 navs2">
-                            <ul>
-                                <li><a href="index.php?act=listsanpham&material=1&" class="product_navs2-title product_navs2-gold">TRANG SỨC VÀNG</a></li>
-                                <li><a href="">Nhẫn vàng</a></li>
-                                <li><a href="">Bông tai vàng</a></li>
-                                <li><a href="">Dây chuyền vàng</a></li>
-                                <li><a href="">Phụ kiện vàng</a></li>
-                                <li><a href="">Trang sức cưới</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="" class="product_navs2-title product_navs2-diamon">TRANG SỨC KIM CƯƠNG</a>
-                                </li>
-                                <li><a href="">Nhẫn kim cương</a></li>
-                                <li><a href="">Bông tai kim cương</a></li>
-                                <li><a href="">Dây chuyền kim cương</a></li>
-                                <li><a href="">Phụ kiện kim cương</a></li>
-                                <li><a href="">Trang sức cưới</a></li>
-                                <li><a href="">Vòng Pan-Charm</a></li>
-
-                            </ul>
-                            <ul>
-                                <li><a href="" class="product_navs2-title">TRANG SỨC NGỌC TRAI</a></li>
-                                <li><a href="">Nhẫn ngọc trai</a></li>
-                                <li><a href="">Bông tai ngọc trai</a></li>
-                                <li><a href="">Dây chuyền ngọc trai</a></li>
-                            </ul>
+                            <?php
+                            foreach ($listchatlieu as $key => $chatlieu) {
+                                extract($chatlieu); ?>
+                                <ul>
+                                    <li><a href="index.php?act=listsanpham&id_chatlieu=<?= $id_chatlieu ?>" class="product_navs2-title product_navs2-gold">TRANG SỨC <?= $ten_chatlieu ?></a></li>
+                                    <?php
+                                    foreach ($listmathang_mathang as $key => $mathang) {
+                                        extract($mathang); ?>
+                                        <li><a href="index.php?act=listsanpham&id_chatlieu=<?= $id_chatlieu ?>&id_mathang=<?= $id_mathang ?>"><?= $ten_mathang . ' ' . $ten_chatlieu ?> </a></li>
+                                    <?php } ?>
+                                </ul>
+                            <?php }
+                            ?>
                         </div>
                     </li>
                     <li class="position-relative hoverjewewedding"><a href="">TRANG SỨC CƯỚI</a><i class="ti-angle-down"></i>
@@ -148,7 +136,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="index.php?act=bosuutap">BỘ SƯU TẬP</a> <i class="ti-angle-down"></i></li>
+                    <li><a href="index.php?act=bosuutap">BỘ SƯU TẬP</a></li>
                     <li><a href="index.php?act=tintuc">TIN TỨC</a></li>
                     <li><a href="">LIÊN HỆ</a></li>
                 </ul>

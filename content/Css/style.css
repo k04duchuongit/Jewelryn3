@@ -22,6 +22,7 @@ header {
 .main {
     padding-top: 110px;
 }
+
 .main-admin {
     padding-top: 50px !important;
 }
@@ -113,13 +114,22 @@ header {
 .header_navs1 .product_navs2 {
     padding: 30px 0px;
     background-color: white;
-    left: -40px;
+    left: -100px;
     justify-content: space-between;
     display: flex;
     position: absolute;
-    width: 801px;
-    border-bottom: 1px solid gray;
+    top: 51px;
     display: none;
+}
+
+.header_navs1 .product_navs2::before {
+    content: "";
+    height: 40px;
+    width: 200px;
+    top: -20px;
+    left: 70px;
+    background-color: rgb(255, 255, 255, 0);
+    position: absolute;
 }
 
 .header_navs1 .jewewedding_navs2 {
@@ -133,7 +143,7 @@ header {
 }
 
 .header_navs1 .product_navs2 ul {
-    width: 267px;
+    width: 300px;
     padding: 0 20px;
     list-style: none;
 }
@@ -145,6 +155,7 @@ header {
 
 .product_navs2-title {
     font-size: 16px;
+    text-transform: uppercase;
 }
 
 .hoverproduct:hover>.product_navs2 {
@@ -641,6 +652,11 @@ footer {
     background-size: cover;
 }
 
+.collectionlist .collection_content-col5 {
+    height: 100%;
+    background-size: cover;
+}
+
 .collectionlist .collection_content {
     position: relative;
 }
@@ -686,6 +702,8 @@ footer {
 }
 
 .collection_name p {
+    text-decoration: none;
+    display: block;
     font-weight: 200;
     color: #fff;
     font-size: 16px;
@@ -751,7 +769,8 @@ footer {
 .forgetpass_edit {
     margin-top: 10px;
 }
-.admin_add_information-button{
+
+.admin_add_information-button {
     width: 200px;
     height: 40px;
     border: none;
@@ -759,12 +778,14 @@ footer {
     border-radius: 6px;
     margin: 4px 0;
 }
-.admin_add_information-button{
-   font-weight: 600;
-   font-size: 16px;
-   color: white;
-   font-family: var(--font_NunitoSans);
+
+.admin_add_information-button {
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    font-family: var(--font_NunitoSans);
 }
+
 .button_actsigninsignup {
     padding: 8px 28px;
     background-color: black;
@@ -774,26 +795,32 @@ footer {
     border-radius: 4px;
     margin-top: 20px;
 }
-.namebst_searchz{
+
+.namebst_searchz {
     padding: 4px;
     width: 300px;
 }
-.admin_add_information .admin_imgnow{
+
+.admin_add_information .admin_imgnow {
     margin-top: 6px;
     width: 140px;
     height: 140px;
 }
+
 .admin_add_information {
     margin: 8px 0;
     font-family: var(--font_NunitoSans);
 }
-.admin_add_information select{
+
+.admin_add_information select {
     width: 200px;
 }
-.admin_add_information p{
+
+.admin_add_information p {
     margin: 0 0 4px 3px;
 }
-.admin_add_information > input{
+
+.admin_add_information>input {
     color: #767676;
     border: 1px solid #ccc;
     padding: 12px 10px;
@@ -1535,6 +1562,7 @@ table tr .admin-content_news {
     justify-content: space-between;
     align-items: center;
 }
+
 .admin_addinformation a {
     text-decoration: none;
     background-color: #000000;

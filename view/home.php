@@ -23,7 +23,7 @@
                                             <a href="">Thêm vào giỏ</a>
                                         </button>
                                         <div class="iconsearchprd">
-                                            <a href=""><i class="ti-search"></i></a>
+                                            <a href="index.php?act=chitietsanpham&ma_sp=<?= $ma_sp ?>"><i class="ti-search"></i></a>
                                         </div>
                                     </div>
                                     <p class="product_name"><?= $ten_sp ?></p>
@@ -62,7 +62,7 @@
                                                         <a href="">Thêm vào giỏ</a>
                                                     </button>
                                                     <div class="iconsearchprd">
-                                                        <a href=""><i class="ti-search"></i></a>
+                                                        <a href="index.php?act=chitietsanpham&ma_sp=<?= $ma_sp ?>"><i class="ti-search"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,7 +100,7 @@
                                             <a href="">Thêm vào giỏ</a>
                                         </button>
                                         <div class="iconsearchprd">
-                                            <a href=""><i class="ti-search"></i></a>
+                                            <a href="index.php?act=chitietsanpham&ma_sp=<?= $ma_sp ?>"><i class="ti-search"></i></a>
                                         </div>
                                     </div>
                                     <p class="product_name"><?= $ten_sp ?></p>
