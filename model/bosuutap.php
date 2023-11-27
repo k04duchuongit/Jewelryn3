@@ -13,7 +13,6 @@ function query_bosuutap($namesearch)
 }
 
 //query_one_bst
-
 function query_one_bosuutap($id_bst)
 {
     $sql = "SELECT * FROM bosuutap WHERE id_bst ='$id_bst'";
@@ -21,9 +20,7 @@ function query_one_bosuutap($id_bst)
     return $listbosuutap;
 }
 
-
 //them bst
-
 function add_bst($name_bst, $img_bst)
 {
     $sql = "INSERT INTO bosuutap (ten_bst,img_bosuutap) VALUE ('$name_bst','$img_bst')";
