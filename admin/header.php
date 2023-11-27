@@ -30,7 +30,12 @@
                 <h1 class="admin_title">Admin Jewelryn3.</h1>
                 <p class="name_damin">
                     hi <span>
-                        duchuong
+                        <?php 
+                        if(!empty( $_SESSION['name_login'])){
+                          $name_admin =  $_SESSION['name_login'];
+                          echo $name_admin;
+                        }
+                        ?>
                     </span> !
                 </p>
             </div>

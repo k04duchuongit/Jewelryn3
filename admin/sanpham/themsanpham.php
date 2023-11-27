@@ -21,6 +21,19 @@
                 <input type="text" placeholder="Nhập số lượng nhập kho" name="quantity_product">
             </div>
             <div class="admin_add_information">
+                <p>Size :</p>
+                <div class="size_product">
+                    <?php
+                    foreach ($list_size as $key => $size) {
+                        extract($size); ?>
+                        <p><?= $so_size ?>
+                            <input type="checkbox" name="size_prd_<?= $id_size ?>" value ="<?= $id_size ?>">
+                        </p>
+                    <?php  }
+                    ?>
+                </div>
+            </div>
+            <div class="admin_add_information">
                 <p>Loại chất liệu</p>
                 <select name="material_product" id="">
                     <?php

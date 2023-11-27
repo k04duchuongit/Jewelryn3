@@ -1,24 +1,39 @@
+<?php 
+extract($account_user);
+?>
 <div class="main">
             <div class="grid wide signinsignup">
                 <div class="row">
                     <div class="col l-12">
                         <div class="signup">
                             <h5>Chỉnh sửa tài khoản</h5>
-                            <form action="">
-                                <div class="signinsignup-input">
-                                    <input type="text" placeholder="Tên đăng nhập" name="namesignup">
+                            <form action="index.php?act=chinhsuataikhoan_update" method="POST">
+                            <div class="signinsignup-input">
+                                    <input type="hidden" name="id_user" value ="<?= $id_nguoidung?>">
                                 </div>
                                 <div class="signinsignup-input">
-                                    <input type="text" placeholder="Số điện thoại" name="sdtsignup">
+                                    <p>Tên đăng nhập</p>
+                                    <input type="text"name="name_edit" value ="<?= $tendangnhap?>">
                                 </div>
                                 <div class="signinsignup-input">
-                                    <input type="text" placeholder="Email" name="sdtsignup">
+                                <p>Số điện thoại</p>
+                                    <input type="text" name="sdt_edit" value ="<?= $sodienthoai?>">
                                 </div>
                                 <div class="signinsignup-input">
-                                    <input type="password" placeholder="Mật khẩu xác nhận" name="passsignup">
+                                <p>Địa chỉ</p>
+                                    <input type="text" name="diachi_edit" value ="<?= $diachi?>">
                                 </div>
+                                <div class="signinsignup-input">
+                                <p>Email</p>
+                                    <input type="text" name="email_edit" value ="<?= $email?>">
+                                </div>
+                                <div class="signinsignup-input">
+                                <p>Mật khẩu xác nhận</p>
+                                    <input type="password" name="pass_edit">
+                                </div>
+                                
                                 <p class="forgetpass_edit"><a href="">Quên mật khẩu ?</a></p>
-                                <button type="submit" class="button_actsigninsignup">Chỉnh sửa tài khoản</button>
+                                <button type="submit" class="button_actsigninsignup" name="confirm_update_acc">Chỉnh sửa tài khoản</button>
                             </form>
                         </div>
                     </div>

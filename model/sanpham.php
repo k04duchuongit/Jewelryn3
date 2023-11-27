@@ -185,3 +185,54 @@ function create_code_product()
     $create_code_product =  strtoupper('Je' . $time_today);
     return $create_code_product;
 }
+
+function querry_size()
+{
+    $sql = "SELECT * FROM size";
+    $list_size = pdo_query($sql);
+    return $list_size;
+}
+
+//add bien the size
+
+function add_bienthe_size($ma_sp, $id_size)
+{
+    $sql = "INSERT INTO bienthe_size (ma_sanpham,id_size) VALUES ('$ma_sp','$id_size')";
+    pdo_execute($sql);
+}
+
+
+// query san pham bien the
+
+function querry_sanpham_bienthe($ma_sp)
+{
+    $sql = "SELECT id_size FROM bienthe_size WHERE ma_sanpham = '$ma_sp'";
+    $list_size_prd  =  pdo_query($sql);
+    return $list_size_prd;
+}
+
+//delete size prd 
+
+function delete_size_product($ma_sp, $id_size)
+{
+    if (!empty($id_size)) {
+        $sql = "DELETE FROM bienthe_size WHERE id_size='$id_size' AND ma_sanpham = '$ma_sp'";
+    } else {
+        $sql = "DELETE FROM bienthe_size WHERE ma_sanpham = '$ma_sp'";
+    }
+    pdo_execute($sql);
+}
+
+//lay ra cac size mà sản phẩm đang được chọn qua form
+
+function list_size_focus($list_size)
+{
+    $size_sanphams = [];
+    foreach ($list_size as $key => $size) {
+        extract($size);
+        if (!empty($_POST['size_prd_' . $id_size])) {
+            $size_sanphams[] = $_POST['size_prd_' . $id_size];
+        }
+    }
+    return $size_sanphams;
+}

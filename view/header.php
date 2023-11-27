@@ -44,10 +44,19 @@ $listchatlieu = query_chatlieu();
                 <div class="header_top-users">
                     <div class="users_loginlogout">
                         <i class="ti-user"></i>
-                        <div class="loginlogout_act">
-                            <p><a href="">Đăng nhập</a></p>
-                            <p><a href="">Đăng ký</a></p>
-                        </div>
+                        <?php if (isset($_SESSION['name_login']) && $_SESSION['name_login'] != '') {    ?>
+                            <div class="loginlogout_act">
+                                <a href="index.php?act=chinhsuataikhoan_list">Sửa thông tin</a>
+                                <a href="index.php?act=dangxuat">Đăng xuất</a>
+                            </div>
+                        <?php  } else {?>
+                            <div class="loginlogout_act">
+                                <a href="index.php?act=dangnhap">Đăng nhập</a>
+                                <a href="index.php?act=dangky">Đăng ký</a>
+                            </div>
+                        <?php  }
+                        ?>
+
                     </div>
                     <div class="users_cart">
                         <i class="ti-shopping-cart">

@@ -12,6 +12,7 @@
                 </form>
                 <div class="admin_addinformation">
                     <a href="">Thêm tin tức</a>
+                    <a href="index.php">Quay về trang chủ</a>
                 </div>
                 <table class="table_admin">
                     <tr>

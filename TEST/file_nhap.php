@@ -1,8 +1,14 @@
-
+<form action="file_nhap.php" method="POST">
+    <input type="checkbox" value="so1" name="so1">
+    <input type="checkbox" value="so2" name="so2">
+    <input type="submit" name="submit">
+</form>
 <?php
-date_default_timezone_set('Asia/Ho_Chi_Minh');                  // định dạng thành múi giừo việt nam
-echo date('d/m/y h:i:s');             //láy ra thời điểm hiện tại (múi giờ lệch nếu không được định dạng)
-echo date('dmy'); 
-echo "</br>";
-
+if (isset($_POST['submit'])) {
+    print_r($_POST['so1']);
+    print_r($_POST['so2']);
+    echo "có";
+} else {
+    echo "chưa có";
+}
 ?>

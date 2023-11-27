@@ -45,7 +45,15 @@ header {
     padding: 4px;
 }
 
-
+.repage_control{
+    text-decoration: none;
+    background-color: #000000;
+    color: white;
+    padding: 8px 30px;
+    font-family: var(--font_NunitoSans);
+    border-radius: 6px;
+    margin-left: auto;
+}
 .header_top-namestore {
     font-size: 40px;
     font-weight: 1000;
@@ -77,8 +85,51 @@ header {
     color: white;
 }
 
+.users_loginlogout {
+    position: relative;
+}
+
 .loginlogout_act {
     display: none;
+    padding: 10px 0px;
+    top: 30px;
+    right: 0;
+    position: absolute;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+    border-radius: 6px;
+}
+
+.loginlogout_act::after {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 180px;
+    background-color: rgb(255, 0, 0, 0);
+    top: -18px;
+    left: 0;
+}
+
+.users_loginlogout:hover .loginlogout_act {
+    animation: moveLeft 0.5s;
+    display: block;
+}
+
+.loginlogout_act a {
+    display: block;
+    text-decoration: none;
+    font-family: var(--font_NunitoSans);
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    color: var(--color30);
+}
+
+.loginlogout_act a:hover {
+    transition: 0.3s;
+    padding-left: 24px;
 }
 
 .header_nav {
@@ -92,7 +143,12 @@ header {
     justify-content: space-around;
     list-style: none;
 }
-
+.admin_add_information .size_product{
+    display: flex;
+}
+.admin_add_information .size_product p{
+    margin-right: 12px;
+}
 .header_nav ul a {
     line-height: 40px;
     text-decoration: none;
@@ -723,6 +779,10 @@ footer {
 .signinsignup-input {
     margin-top: 20px;
 }
+.signinsignup-input p{
+    font-family: var(--font_NunitoSans);
+    padding: 0 0 8px 6px;
+}
 
 .signin h5,
 .signup h5 {
@@ -836,7 +896,7 @@ footer {
 }
 
 .signup,
-.admin_add_information-wrap {
+.signin {
     padding: 32px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -1575,6 +1635,19 @@ table tr .admin-content_news {
 @keyframes moveRight {
     0% {
         transform-origin: 0% 0%;
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        transform-origin: 100% 0%;
         transform: scale(0);
         opacity: 0.5;
     }

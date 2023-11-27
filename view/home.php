@@ -1,6 +1,5 @@
 <div class="main">
             <div class="banner" style="background-image: url(content/images/banner/banner1.jpg);">
-
                 <i class="ti-angle-right"><a href=""></a></i>
                 <i class="ti-angle-left"><a href=""></a></i>
             </div>

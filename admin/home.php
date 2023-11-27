@@ -36,6 +36,12 @@
                             <p>Quản lý bộ sưu tập</p>
                         </div>
                     </a>
+                    <a class="col l-3 adminfunction" href="./index.php?act=dangxuat">
+                        <div>
+                            <i class="ti-power-off"></i>
+                            <p>Đăng xuất</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

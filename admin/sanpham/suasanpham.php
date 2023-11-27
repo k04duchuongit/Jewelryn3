@@ -10,7 +10,7 @@ if (isset($information_prd) || isset($img_prd)) {
     <div class="action_admin grid wide">
         <p class="adminaction_title">Sửa Sản Phẩm</p>
         <div class="admin_addinformation">
-            <a href="index.php?act=quanlysanpham">Quay về trang quản lý</a> 
+            <a href="index.php?act=quanlysanpham">Quay về trang quản lý</a>
         </div>
         <form action="index.php?act=suasanpham_update&ma_sp=<?= $ma_sp ?>" class="admin_add_information-wrap" enctype="multipart/form-data" method="POST">
             <div class="admin_add_information">
@@ -27,6 +27,28 @@ if (isset($information_prd) || isset($img_prd)) {
             </div>
             <div class="admin_add_information">
                 <input type="text" placeholder="Nhập số lượng nhập kho" name="quantity_product" value="<?= $soluong_tonkho ?>">
+            </div>
+            <div class="admin_add_information">
+                <p>Size :</p>
+                <div class="size_product">
+                    <?php
+                    //    echo "<pre>";
+                    //    print_r($list_size_prd);
+                    foreach ($list_size as $key => $size) {
+                        extract($size);
+                        if (in_array($id_size, $list_size_prd)) { ?>
+                            <p><?= $so_size ?>
+                                <input type="checkbox" name="size_prd_<?= $id_size ?>" value="<?= $id_size ?>" checked>
+                            </p>
+                        <?php } else { ?>
+                            <p><?= $so_size ?>
+                                <input type="checkbox" name="size_prd_<?= $id_size ?>" value="<?= $id_size ?>">
+                            </p>
+                        <?php  }
+                        ?>
+                    <?php }
+                    ?>
+                </div>
             </div>
             <div class="admin_add_information">
                 <p>Loại chất liệu</p>
