@@ -3,6 +3,7 @@ session_start();
 ob_start();
 include './model/pdo.php';
 include './model/sanpham.php';
+include './model/contact_user.php';
 include './model/bosuutap.php';
 include './model/taikhoan/dangnhap.php';
 include './model/taikhoan/dangky.php';
@@ -13,7 +14,11 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
     $act = $_GET['act'];
     switch ($act) {
         case "chitietsanpham":
+            $list_size = querry_size();
             if (isset($_GET['ma_sp'])) {
+                $list_size_of_prd =  querry_sanpham_bienthe($_GET['ma_sp']);
+                // echo "<pre>";
+                // print_r($list_size_of_prd);
                 $one_prd_detail = query_one_sanpham($_GET['ma_sp']);
                 $img_one_prd = load_sanpham_img_home($_GET['ma_sp']);
                 $id_chatlieu = $one_prd_detail['id_chatlieu'];
@@ -32,7 +37,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $taikhoan = checkaccount_login($namesignin, $passsignin);
                 if (is_array($taikhoan)) {
                     $role = $taikhoan['role'];
-                    print_r('hi aenh ' . $role);
                     if ($role == 1) {
                         $_SESSION['role'] = $role;
                         $_SESSION['name_login'] = $taikhoan['tendangnhap'];
@@ -109,6 +113,22 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 }
             }
             header('Location: index.php');
+            break;
+        case "contact":
+            include 'view/contact.php';
+            if (isset($_POST['submit_contact'])) {
+                if (!empty($_SESSION['id_user'])) {
+                    $id_nguoidung = $_SESSION['id_user'];
+                } else {
+                    $id_nguoidung = '';
+                }
+                $contact_name = $_POST['contact_name'];
+                $contact_sdt = $_POST['contact_sdt'];
+                $contact_email = $_POST['contact_email'];
+                $contact_title = $_POST['contact_title'];
+                $contact_content = $_POST['contact_content'];
+                add_title_contact($id_nguoidung, $contact_name, $contact_sdt, $contact_email, $contact_title, $contact_content);
+            }
             break;
         case "quenmatkhau":
             include 'view/quenmatkhau.php';

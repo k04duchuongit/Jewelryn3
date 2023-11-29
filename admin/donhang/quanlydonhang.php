@@ -5,6 +5,7 @@
             <input type="text" placeholder="Nhập sô điện thoại" class="nameprd_searchz">
 
             <button type="submit" class="admin_ordered">Tìm Kiếm</button>
+            <a href="index.php" class="repage_control">Quay về trang chủ</a>
         </form>
         <table class="table_admin">
             <tr>

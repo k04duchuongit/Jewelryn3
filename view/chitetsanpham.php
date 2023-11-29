@@ -31,9 +31,16 @@ extract($img_one_prd);
                     <div class="product-size">
                         <p>Size : </p>
                         <select name="sizeproduct" id="">
-                            <option value="">Chọn kích cỡ</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
+                            <?php
+                            foreach ($list_size_of_prd as $key => $id_size) {
+                                extract($id_size);
+                                foreach ($list_size as $key => $value) {
+                                    if ($value['id_size'] == $id_size) {   ?>
+                                        <option value="<?= $id_size ?>"><?= $value['id_size'] ?></option>
+                            <?php }
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="product-quantity">
@@ -85,7 +92,7 @@ extract($img_one_prd);
                     ?>
                         <div class="l-3 col">
                             <div class="product">
-                                <div class="product_img" style="background-image: url(content/images/product/<?= $img_prd_inhome['anhsp1']?>);">
+                                <div class="product_img" style="background-image: url(content/images/product/<?= $img_prd_inhome['anhsp1'] ?>);">
                                     <button class="product_addcart">
                                         <a href="">Thêm vào giỏ</a>
                                     </button>

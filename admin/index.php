@@ -8,6 +8,7 @@ if (isset($_SESSION['role'])) {
         include '../model/pdo.php';
         include '../model/sanpham.php';
         include '../model/bosuutap.php';
+        include '../model/contact_user.php';
         include '../model/taikhoan/taikhoan.php';
         include '../global.php';
         include './header.php';
@@ -219,6 +220,11 @@ if (isset($_SESSION['role'])) {
 
                 case "suatintuc":
                     include 'tintuc/suatintuc.php';
+                    break;
+
+                case "quanlycontact":
+                    $list_contact = querry_all_contact();
+                    include 'contact/quanlycontact.php';
                     break;
             }
         } else {

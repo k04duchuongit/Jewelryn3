@@ -45,7 +45,7 @@ header {
     padding: 4px;
 }
 
-.repage_control{
+.repage_control {
     text-decoration: none;
     background-color: #000000;
     color: white;
@@ -54,6 +54,7 @@ header {
     border-radius: 6px;
     margin-left: auto;
 }
+
 .header_top-namestore {
     font-size: 40px;
     font-weight: 1000;
@@ -143,12 +144,15 @@ header {
     justify-content: space-around;
     list-style: none;
 }
-.admin_add_information .size_product{
+
+.admin_add_information .size_product {
     display: flex;
 }
-.admin_add_information .size_product p{
+
+.admin_add_information .size_product p {
     margin-right: 12px;
 }
+
 .header_nav ul a {
     line-height: 40px;
     text-decoration: none;
@@ -227,15 +231,34 @@ header {
     z-index: 1;
 }
 
+.wrap_pagecontact {
+    padding: 20px 8px;
+    font-family: var(--font_NunitoSans);
+    color: var(--color30);
+}
+
 .hoverjewewedding:hover .jewewedding_navs2 {
     display: block;
     animation: moveRight 0.5s;
+}
+
+.signinsignup-input textarea {
+    width: 100%;
 }
 
 .banner {
     padding-top: 30%;
     background-size: cover;
     position: relative;
+}
+
+.pagecontact-title {
+    font-size: 24px;
+}
+
+.banner_contact {
+    padding-top: 35%;
+    background-size: cover;
 }
 
 .banner>i {
@@ -779,9 +802,26 @@ footer {
 .signinsignup-input {
     margin-top: 20px;
 }
-.signinsignup-input p{
+
+.signinsignup-input p {
     font-family: var(--font_NunitoSans);
     padding: 0 0 8px 6px;
+}
+
+.about_us {
+    padding-left: 12px;
+}
+
+.about_us p {
+    margin-top: 12px;
+    padding-top: 8px;
+}
+
+.about_us span {
+    display: block;
+    margin-top: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(205, 205, 205);
 }
 
 .signin h5,
@@ -793,7 +833,8 @@ footer {
     font-size: 20px;
 }
 
-.signinsignup-input input {
+.signinsignup-input input,
+.signinsignup-input textarea {
     color: #767676;
     border: 1px solid #ccc;
     padding: 12px 10px;

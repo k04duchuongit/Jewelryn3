@@ -36,6 +36,13 @@
                             <p>Quản lý bộ sưu tập</p>
                         </div>
                     </a>
+                    
+                    <a class="col l-3 adminfunction" href="./index.php?act=quanlycontact">
+                        <div>
+                            <i class="ti-headphone-alt"></i>
+                            <p>Quản lý phản hồi người dùng</p>
+                        </div>
+                    </a>
                     <a class="col l-3 adminfunction" href="./index.php?act=dangxuat">
                         <div>
                             <i class="ti-power-off"></i>

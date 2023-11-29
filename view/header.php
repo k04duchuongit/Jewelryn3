@@ -49,7 +49,7 @@ $listchatlieu = query_chatlieu();
                                 <a href="index.php?act=chinhsuataikhoan_list">Sửa thông tin</a>
                                 <a href="index.php?act=dangxuat">Đăng xuất</a>
                             </div>
-                        <?php  } else {?>
+                        <?php  } else { ?>
                             <div class="loginlogout_act">
                                 <a href="index.php?act=dangnhap">Đăng nhập</a>
                                 <a href="index.php?act=dangky">Đăng ký</a>
@@ -136,18 +136,21 @@ $listchatlieu = query_chatlieu();
                             ?>
                         </div>
                     </li>
-                    <li class="position-relative hoverjewewedding"><a href="">TRANG SỨC CƯỚI</a><i class="ti-angle-down"></i>
+                    <li class="position-relative hoverjewewedding"><a href="index.php?act=listsanpham&id_chatlieu=3">TRANG SỨC KIM CƯƠNG</a><i class="ti-angle-down"></i>
                         <div class="navs2 jewewedding_navs2">
                             <ul>
-                                <li><a href="">Nhẫn cưới</a></li>
-                                <li><a href="">Nhẫn cầu hôn</a></li>
-                                <li><a href="">Kiềng cưới</a></li>
+                                <?php
+                                foreach ($listmathang_mathang as $key => $mathang) {
+                                    extract($mathang); ?>
+                                    <li><a href="index.php?act=listsanpham&id_chatlieu=3&id_mathang=<?= $id_mathang ?>"><?= $ten_mathang ?> Kim cương</a></li>
+                                <?php   }
+                                ?>
                             </ul>
                         </div>
                     </li>
                     <li><a href="index.php?act=bosuutap">BỘ SƯU TẬP</a></li>
                     <li><a href="index.php?act=tintuc">TIN TỨC</a></li>
-                    <li><a href="">LIÊN HỆ</a></li>
+                    <li><a href="index.php?act=contact">LIÊN HỆ</a></li>
                 </ul>
             </div>
         </header>
