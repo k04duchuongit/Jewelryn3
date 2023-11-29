@@ -21,7 +21,6 @@ $listchatlieu = query_chatlieu();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="content/font/fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,200;6..12,500&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="content/font/Themifi_icon - Sao chép/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="content/Css/style.css">
     <link rel="stylesheet" href="content/Css/setout.css">

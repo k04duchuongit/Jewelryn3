@@ -70,7 +70,6 @@ header {
     padding: 4px;
     margin: 0 6px;
 }
-
 .users_cart i {
     position: relative;
 }
@@ -98,7 +97,7 @@ header {
     position: absolute;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     background-color: rgb(255, 255, 255);
-    z-index: 1;
+    z-index: 3;
     border-radius: 6px;
 }
 
@@ -635,13 +634,12 @@ footer {
 }
 
 .product-quantity .addto_cart {
-    height: 40px;
     color: #fff;
-    line-height: 40px;
     border-radius: 50px;
-    padding: 0 25px;
+    padding: 9px 25px;
+    margin-left: 20px;
     background-color: #363636;
-    margin-left: 12px;
+    font-size: 14px;
 }
 
 .detailprd_introduce-title {
@@ -1155,7 +1153,6 @@ footer {
     left: 0;
     background-color: rgb(136, 136, 136, 0.3);
 }
-
 .carthidden .cart_content {
     width: 360px;
     height: 100%;

@@ -1,6 +1,8 @@
 <?php
-extract($one_prd_detail);
-extract($img_one_prd);
+if (is_array($one_prd_detail) && is_array($img_one_prd)) {
+    extract($one_prd_detail);
+    extract($img_one_prd);
+}
 ?>
 <div class="main">
     <div class="grid wide detailprd">
@@ -19,7 +21,7 @@ extract($img_one_prd);
                 </div>
             </div>
             <div class="col l-6">
-                <form class="detailprd_contents">
+                <form action="index.php?act=addgiohang&masp=<?= $ma_sp ?>" class="detailprd_contents" method="POST">
                     <h3 class="product-name"><?= $ten_sp ?></h3>
                     <p class="product-price"><?= $gia_sp ?> vnđ</p>
                     <p class="product-note">* Giá sản phẩm thay đổi tùy theo trọng lượng thực tế của sản
@@ -28,6 +30,7 @@ extract($img_one_prd);
                         <i class="ti-heart"></i>
                         Yêu Thích Sản Phẩm
                     </a>
+                    <input type="hidden" value="<?= $ma_sp ?>" name="code_prd">
                     <div class="product-size">
                         <p>Size : </p>
                         <select name="sizeproduct" id="">
@@ -36,7 +39,7 @@ extract($img_one_prd);
                                 extract($id_size);
                                 foreach ($list_size as $key => $value) {
                                     if ($value['id_size'] == $id_size) {   ?>
-                                        <option value="<?= $id_size ?>"><?= $value['id_size'] ?></option>
+                                        <option value="<?= $id_size ?>"> <?= $value['so_size'] ?> </option>
                             <?php }
                                 }
                             }
@@ -46,11 +49,13 @@ extract($img_one_prd);
                     <div class="product-quantity">
                         <p>Số Lượng: </p>
                         <div class="product-qty">
-                            <i class="ti-minus"></i>
-                            <input type="text" value="1">
-                            <i class="ti-plus"></i>
+                            <i class="ti-minus ti-minus__summation"></i>
+                            <input type="text" id="quantity__prd" value="1" name="quantity__prdx">
+                            <i class="ti-plus ti-plus__subtraction"></i>
                         </div>
-                        <button class="addto_cart">Thêm Vào Giỏ Hàng</button>
+                        <button class="addto_cart" type="submit" name="add_prd_cart">
+                            Thêm vào giỏ hàng
+                        </button>
                     </div>
                 </form>
                 <div class="detailprd_introduce">

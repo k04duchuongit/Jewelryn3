@@ -8,6 +8,8 @@ include './model/bosuutap.php';
 include './model/taikhoan/dangnhap.php';
 include './model/taikhoan/dangky.php';
 include './model/taikhoan/taikhoan.php';
+include './model/giohang.php';
+
 include 'view/header.php';
 
 if (isset($_GET['act']) && $_GET['act'] != '') {
@@ -24,7 +26,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $id_chatlieu = $one_prd_detail['id_chatlieu'];
                 $img_16_prd =  load16_sanpham($id_chatlieu, '');
             }
-            include 'view/chitetsanpham.php';
+            include 'view/chitietsanpham.php';
             break;
         case "bosuutap":
             $list_bst =  query_bosuutap('');
@@ -55,10 +57,12 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             }
             include 'view/dangnhapdangky.php';
             break;
+
         case 'dangxuat':
             session_unset();
             header('Location: index.php');
             break;
+
         case "dangky":
             if (isset($_POST['dangky'])) {
                 $namesignup = $_POST['namesignup'];
@@ -71,11 +75,33 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             }
             include 'view/dangnhapdangky.php';
             break;
+
         case "dathang":
             include 'view/dathang.php';
             break;
-        case "giohang":
-            include 'view/giohang.php';
+
+        case "addgiohang":
+            $ma_sp = $_GET['masp'];
+            if (isset($_POST['add_prd_cart'])) {
+                if (isset($_SESSION['id_user'])) {
+                    $id_user = $_SESSION['id_user'];
+                } else if (!isset($_SESSION['id_user_unlogin'])) {
+
+                    $name_user = 'UNLOG' . random_codeUser_noLogin();
+                    $_SESSION['id_user_unlogin'] = $name_user;
+                    $id_user = $_SESSION['id_user_unlogin'];
+                }else{
+                    $id_user =  $_SESSION['id_user_unlogin'];
+                }
+                $code_prd = $_POST['code_prd'];
+                $sizeproduct = $_POST['sizeproduct'];
+                $quantity_prd = $_POST['quantity__prdx'];
+                add_giohang($id_user, $code_prd, $sizeproduct, $quantity_prd);
+                header("Location:index.php?act=chitietsanpham&ma_sp=$ma_sp");
+            } else {
+                echo "fail";
+            }
+
             break;
         case "listsanpham":
             if (isset($_GET['id_chatlieu']) || isset($_GET['id_mathang'])) {

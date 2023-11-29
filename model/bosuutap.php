@@ -23,7 +23,7 @@ function query_one_bosuutap($id_bst)
 //them bst
 function add_bst($name_bst, $img_bst)
 {
-    $sql = "INSERT INTO bosuutap (ten_bst,img_bosuutap) VALUE ('$name_bst','$img_bst')";
+    $sql = "INSERT INTO bosuutap (ten_bst,img_bosuutap) VALUES ('$name_bst','$img_bst')";
     pdo_execute($sql);
 }
 
