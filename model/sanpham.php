@@ -76,7 +76,7 @@ function query_sanpham()
     $list_prd = pdo_query($sql);
     return $list_prd;
 }
-//quẻy san pham trong thung rac
+//querry san pham trong thung rac
 function query_sanpham_reduce()
 {
     $sql = "SELECT * FROM sanpham WHERE role_prd=1";

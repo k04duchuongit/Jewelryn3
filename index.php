@@ -79,7 +79,15 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
         case "dathang":
             include 'view/dathang.php';
             break;
-
+        case "listgiohang":
+            if (isset($_SESSION['id_user_unlogin'])) {
+                $_SESSION['id_user_unlogin'];
+                $list_prd_incart =   querry_content_cart($_SESSION['id_user_unlogin']);
+                // echo "<pre>";
+                // print_r($list_prd_incart);
+            }
+            include 'view/giohang.php';
+            break;
         case "addgiohang":
             $ma_sp = $_GET['masp'];
             if (isset($_POST['add_prd_cart'])) {
@@ -90,7 +98,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                     $name_user = 'UNLOG' . random_codeUser_noLogin();
                     $_SESSION['id_user_unlogin'] = $name_user;
                     $id_user = $_SESSION['id_user_unlogin'];
-                }else{
+                } else {
                     $id_user =  $_SESSION['id_user_unlogin'];
                 }
                 $code_prd = $_POST['code_prd'];

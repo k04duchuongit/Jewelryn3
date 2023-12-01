@@ -1,7 +1,12 @@
 <?php
+
 $listmathang_mathang = query_loai_mathang();
 $listchatlieu = query_chatlieu();
-
+$list_size = querry_size();
+// Sửa điều kiện isset
+if (isset($_SESSION['id_user_unlogin'])) {
+    $list_prd_incart = querry_cart_user($_SESSION['id_user_unlogin']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -67,46 +72,38 @@ $listchatlieu = query_chatlieu();
                         <div class="cart_content">
                             <ul>
                                 <li>
-                                    <a href="" class="product_incart">
-                                        <img src="content/images/product/nhan1.jpg" alt="">
-                                        <div class="product_incart-information">
-                                            <p class="product_incart-information-name">Nhẫn ngọc trai racazel</p>
-                                            <div class="product_incart-information-quantity">
-                                                <p>Số lượng : </p>
-                                                <p>4</p>
+                                    <?php
+                                    foreach ($list_prd_incart as $key => $prd) {
+                                        $List_img_prd =  query_one_anhsp($prd['ma_sp']);
+                                        $content_prd  =  query_one_sanpham($prd['ma_sp']);
+                                    ?>
+                                        <a href="" class="product_incart">
+                                            <img src="content/images/product/<?= $List_img_prd['anhsp1'] ?>" alt="">
+                                            <div class="product_incart-information">
+                                                <p class="product_incart-information-name"><?= $content_prd['ten_sp'] ?></p>
+                                                <div class="product_incart-information-quantity">
+                                                    <p>Số lượng : </p>
+                                                    <p><?= $prd['soluong_sp'] ?></p>
+                                                </div>
+                                                <div class="product_incart-information-quantity">
+                                                    <p>Size : </p>
+                                                    <?php
+                                                    foreach ($list_size as $key => $value) {
+                                                        if ($value['id_size'] == $prd['id_size']) { ?>
+                                                            <p><?= $value['so_size'] ?></p>
+                                                    <?php  }
+                                                    }
+                                                    ?>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <i class="ti-close deleteprdincart"></i>
-                                    </a>
-                                    </a>
-                                    <a href="" class="product_incart">
-                                        <img src="content/images/product/nhan1.jpg" alt="">
-                                        <div class="product_incart-information">
-                                            <p class="product_incart-information-name">Nhẫn ngọc trai racazel</p>
-                                            <div class="product_incart-information-quantity">
-                                                <p>Số lượng : </p>
-                                                <p>4</p>
-                                            </div>
-                                        </div>
-                                        <i class="ti-close deleteprdincart"></i>
-                                    </a>
-                                    </a>
-                                    <a href="" class="product_incart">
-                                        <img src="content/images/product/nhan1.jpg" alt="">
-                                        <div class="product_incart-information">
-                                            <p class="product_incart-information-name">Nhẫn ngọc trai racazel</p>
-                                            <div class="product_incart-information-quantity">
-                                                <p>Số lượng : </p>
-                                                <p>4</p>
-                                            </div>
-                                        </div>
-                                        <i class="ti-close deleteprdincart"></i>
-                                    </a>
-                                    </a>
+                                            <i class="ti-close deleteprdincart"></i>
+                                        </a>
+                                    <?php }
+                                    ?>
                                 </li>
                             </ul>
                             <div class="actcart">
-                                <button><a href="">Xem giỏ hàng</a><i class="ti-shopping-cart"></i></button>
+                                <button><a href="index.php?act=listgiohang">Xem giỏ hàng</a><i class="ti-shopping-cart"></i></button>
                                 <button><a href="">Đặt hàng ngay</a><i class="ti-bag"></i></button>
                             </div>
                         </div>

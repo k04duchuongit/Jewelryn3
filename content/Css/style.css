@@ -1063,7 +1063,9 @@ footer {
 .product_incart-information-quantity {
     display: flex;
 }
-
+.product_incart-information-quantity p{
+    font-size: 14px;
+}
 .product_incart {
     position: relative;
     display: flex;
@@ -1133,6 +1135,7 @@ footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 2;
+    margin-bottom: 6px;
 }
 
 .product_incart-information {
