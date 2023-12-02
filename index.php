@@ -77,39 +77,51 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             break;
 
         case "dathang":
+            if (isset($_SESSION['id_user'])) {
+                $_SESSION['id_user'];
+                $list_prd_incart =   querry_content_cart($_SESSION['id_user']);
+                // echo "<pre>";
+                // print_r($list_prd_incart);
+            }
             include 'view/dathang.php';
             break;
         case "listgiohang":
-            if (isset($_SESSION['id_user_unlogin'])) {
-                $_SESSION['id_user_unlogin'];
-                $list_prd_incart =   querry_content_cart($_SESSION['id_user_unlogin']);
+            if (isset($_SESSION['id_user'])) {
+                $_SESSION['id_user'];
+                $list_prd_incart =   querry_content_cart($_SESSION['id_user']);
                 // echo "<pre>";
                 // print_r($list_prd_incart);
             }
             include 'view/giohang.php';
             break;
         case "addgiohang":
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
             $ma_sp = $_GET['masp'];
             if (isset($_POST['add_prd_cart'])) {
                 if (isset($_SESSION['id_user'])) {
                     $id_user = $_SESSION['id_user'];
-                } else if (!isset($_SESSION['id_user_unlogin'])) {
+                } else if (!isset($_SESSION['id_user'])) {
 
                     $name_user = 'UNLOG' . random_codeUser_noLogin();
-                    $_SESSION['id_user_unlogin'] = $name_user;
-                    $id_user = $_SESSION['id_user_unlogin'];
+                    $_SESSION['id_user'] = $name_user;
+                    $id_user = $_SESSION['id_user'];
                 } else {
-                    $id_user =  $_SESSION['id_user_unlogin'];
+                    $id_user =  $_SESSION['id_user'];
                 }
+                $time_add_tocart = date('d/m/Y -- H:i');
                 $code_prd = $_POST['code_prd'];
                 $sizeproduct = $_POST['sizeproduct'];
                 $quantity_prd = $_POST['quantity__prdx'];
-                add_giohang($id_user, $code_prd, $sizeproduct, $quantity_prd);
+                add_giohang($id_user, $code_prd, $sizeproduct, $quantity_prd, $time_add_tocart);
                 header("Location:index.php?act=chitietsanpham&ma_sp=$ma_sp");
             } else {
                 echo "fail";
             }
-
+            break;
+        case "delete_prd_incart":
+            $ma_sp = $_GET['ma_sp'];
+            delete_prd_incart($ma_sp);
+            header("Location:index.php?act=listgiohang");
             break;
         case "listsanpham":
             if (isset($_GET['id_chatlieu']) || isset($_GET['id_mathang'])) {

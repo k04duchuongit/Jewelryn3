@@ -1,11 +1,12 @@
 <?php
-
 $listmathang_mathang = query_loai_mathang();
 $listchatlieu = query_chatlieu();
 $list_size = querry_size();
 // Sửa điều kiện isset
-if (isset($_SESSION['id_user_unlogin'])) {
-    $list_prd_incart = querry_cart_user($_SESSION['id_user_unlogin']);
+if (isset($_SESSION['id_user'])) {
+    $list_prd_incart = querry_cart_user($_SESSION['id_user']);
+    // echo "<pre>";
+    // print_r($_SESSION['id_user']);
 }
 ?>
 
@@ -73,39 +74,48 @@ if (isset($_SESSION['id_user_unlogin'])) {
                             <ul>
                                 <li>
                                     <?php
-                                    foreach ($list_prd_incart as $key => $prd) {
-                                        $List_img_prd =  query_one_anhsp($prd['ma_sp']);
-                                        $content_prd  =  query_one_sanpham($prd['ma_sp']);
+                                    if (isset($list_prd_incart)) {
+                                        foreach ($list_prd_incart as $key => $prd) {
+                                            $List_img_prd =  query_one_anhsp($prd['ma_sp']);
+                                            $content_prd  =  query_one_sanpham($prd['ma_sp']);
                                     ?>
-                                        <a href="" class="product_incart">
-                                            <img src="content/images/product/<?= $List_img_prd['anhsp1'] ?>" alt="">
-                                            <div class="product_incart-information">
-                                                <p class="product_incart-information-name"><?= $content_prd['ten_sp'] ?></p>
-                                                <div class="product_incart-information-quantity">
-                                                    <p>Số lượng : </p>
-                                                    <p><?= $prd['soluong_sp'] ?></p>
+                                            <a href="index.php?act=chitietsanpham&ma_sp=<?= $prd['ma_sp'] ?>" class="product_incart">
+                                                <img src="content/images/product/<?= $List_img_prd['anhsp1'] ?>" alt="">
+                                                <div class="product_incart-information">
+                                                    <p class="product_incart-information-name"><?= $content_prd['ten_sp'] ?></p>
+                                                    <div class="product_incart-information-quantity">
+                                                        <p>Số lượng : </p>
+                                                        <p><?= $prd['soluong_sp'] ?></p>
+                                                    </div>
+                                                    <div class="product_incart-information-quantity">
+                                                        <p>Size : </p>
+                                                        <?php
+                                                        foreach ($list_size as $key => $value) {
+                                                            if ($value['id_size'] == $prd['id_size']) { ?>
+                                                                <p><?= $value['so_size'] ?></p>
+                                                        <?php  }
+                                                        }
+                                                        ?>
+                                                    </div>
                                                 </div>
-                                                <div class="product_incart-information-quantity">
-                                                    <p>Size : </p>
-                                                    <?php
-                                                    foreach ($list_size as $key => $value) {
-                                                        if ($value['id_size'] == $prd['id_size']) { ?>
-                                                            <p><?= $value['so_size'] ?></p>
-                                                    <?php  }
-                                                    }
-                                                    ?>
-                                                </div>
-                                            </div>
-                                            <i class="ti-close deleteprdincart"></i>
-                                        </a>
+
+                                            </a>
+                                        <?php }
+                                    } else { ?>
+                                        <p class="warning_nullincart">Giỏ hàng trống</p>
                                     <?php }
                                     ?>
                                 </li>
                             </ul>
-                            <div class="actcart">
-                                <button><a href="index.php?act=listgiohang">Xem giỏ hàng</a><i class="ti-shopping-cart"></i></button>
-                                <button><a href="">Đặt hàng ngay</a><i class="ti-bag"></i></button>
-                            </div>
+                            <?php
+                            if (isset($list_prd_incart)) {    ?>
+                                <div class="actcart">
+                                    <button><a href="index.php?act=listgiohang">Xem giỏ hàng</a><i class="ti-shopping-cart"></i></button>
+                                    <button><a href="">Đặt hàng ngay</a><i class="ti-bag"></i></button>
+                                </div>
+                            <?php   }
+                            ?>
+
                         </div>
                     </div>
                     <!-- END CART -->

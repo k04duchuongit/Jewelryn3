@@ -1087,13 +1087,6 @@ footer {
     background-color: rgb(194, 194, 194);
 }
 
-.deleteprdincart {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-}
-
 .actcart {
     padding: 0 16px;
 }
@@ -1612,11 +1605,16 @@ table tr .admin-content_news {
     background-color: white;
     border-collapse: collapse;
 }
-
+.warning_nullincart{
+    text-align: center;
+    font-family: var(--font_NunitoSans);
+    font-size: 26px;
+    padding: 40px 0;
+}
 
 .table_admin-sumprice>p,
 .detail__bill-prdsumprice p {
-    color: red;
+    color: var(--color10);
     font-weight: 600;
 }
 

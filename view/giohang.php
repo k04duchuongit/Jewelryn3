@@ -18,13 +18,14 @@
                     Thời Gian Thêm
                 </th>
                 <th>
-                    Giá
+                    Đơn giá
                 </th>
                 <th>
                     Xóa
                 </th>
             </tr>
             <?php
+            $tong_tien = 0;
             foreach ($list_prd_incart as $key => $prd_content) {
                 extract($prd_content); ?>
                 <tr>
@@ -35,18 +36,27 @@
                     <td><?= $id_size ?></td>
                     <td><?= $soluong_sp ?></td>
                     <td><?= $thoi_gian_them ?></td>
-                    <td class="carttable-price"><?= $gia_sp ?>vnđ</td>
+                    <td class="carttable-price"><?= $gia_sp * $soluong_sp ?>vnđ</td>
                     <td class="carttable-delete">
-                        <a href=""> <i class="ti-face-sad"></i></a>
+                        <a href="index.php?act=delete_prd_incart&ma_sp=<?= $ma_sp ?>"><i class="ti-face-sad"></i></a>
                     </td>
                 </tr>
-            <?php  }
+            <?php $tong_tien += $gia_sp * $soluong_sp;
+            }
             ?>
             <tr>
-                <td colspan="5" class="btnorder">
+                <td colspan="4" class="btnorder">
                     <button>
-                        <a href="">Đặt Hàng</a>
+                        <a href="index.php?act=dathang">Đặt Hàng</a>
                     </button>
+                </td>
+                <td colspan="1">
+                    Tổng tiền
+                </td>
+                <td colspan="2" class="table_admin-sumprice">
+                    <?php
+                    echo "<p> $tong_tien vnđ </p>";
+                    ?>
                 </td>
             </tr>
         </table>
