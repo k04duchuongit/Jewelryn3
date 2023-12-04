@@ -15,7 +15,7 @@ function querry_cart_user($id_user)
 
 function querry_content_cart($ma_nguoi_dung)
 {
-    $sql = "SELECT anhsanpham.anhsp1, sanpham.ten_sp, giohang.thoi_gian_them,giohang.soluong_sp, sanpham.gia_sp, giohang.id_size,giohang.ma_sp FROM giohang
+    $sql = "SELECT anhsanpham.anhsp1, sanpham.ten_sp,sanpham.gia_sp, giohang.* FROM giohang
         JOIN sanpham ON giohang.ma_sp = sanpham.ma_sp
         JOIN anhsanpham ON sanpham.ma_sp = anhsanpham.ma_sp 
         WHERE ma_nguoidung = '$ma_nguoi_dung'";
@@ -29,5 +29,10 @@ function querry_content_cart($ma_nguoi_dung)
 function delete_prd_incart($ma_sp)
 {
     $sql = "DELETE FROM giohang WHERE ma_sp = '$ma_sp'";
+    pdo_execute($sql);
+}
+function delete_ALLprd_incart()
+{
+    $sql = "DELETE FROM giohang";
     pdo_execute($sql);
 }

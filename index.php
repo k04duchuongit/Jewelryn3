@@ -9,9 +9,10 @@ include './model/taikhoan/dangnhap.php';
 include './model/taikhoan/dangky.php';
 include './model/taikhoan/taikhoan.php';
 include './model/giohang.php';
+include './model/donhang.php';
 
 include 'view/header.php';
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 if (isset($_GET['act']) && $_GET['act'] != '') {
     $act = $_GET['act'];
     switch ($act) {
@@ -82,6 +83,28 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $list_prd_incart =   querry_content_cart($_SESSION['id_user']);
                 // echo "<pre>";
                 // print_r($list_prd_incart);
+
+                if (isset($_POST['order_bill'])) {
+                    $id_hoadon = random_code_bill();
+                    $id_nguoidung = $_SESSION['id_user'];
+                    $ngaytaohoadon =  date('d/m/Y -- H:i');
+                    $hinhthuc_thanhtoan = $_POST['payinformation'];
+                    $giatri_hoadon = $_POST['totalbill'];
+                    $trangthai_donhang = $_POST['orderstatus'];
+                    $diachi_nguoidung = $_POST['payaddress'];
+                    $ct_diachi_nguoidung = $_POST['detail_payaddress'];
+                    $paysdt = $_POST['paysdt'];
+                    add_hoadon($id_hoadon, $id_nguoidung, $ngaytaohoadon, $hinhthuc_thanhtoan, $giatri_hoadon,$trangthai_donhang,$diachi_nguoidung,$ct_diachi_nguoidung, $paysdt);
+
+                    foreach ($list_prd_incart as $key => $prd) {
+                        $ma_sp = $prd['ma_sp'];
+                        $so_luong = $prd['soluong_sp'];
+                        $id_size = $prd['id_size'];
+                        add_chitiehoadon($id_hoadon, $ma_sp, $so_luong, $id_size);
+                    }
+                    delete_ALLprd_incart();
+                    header('Location: index.php?act=dathang');
+                }
             }
             include 'view/dathang.php';
             break;
@@ -95,7 +118,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             include 'view/giohang.php';
             break;
         case "addgiohang":
-            date_default_timezone_set('Asia/Ho_Chi_Minh');
             $ma_sp = $_GET['masp'];
             if (isset($_POST['add_prd_cart'])) {
                 if (isset($_SESSION['id_user'])) {

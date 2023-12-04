@@ -1090,7 +1090,9 @@ footer {
 .actcart {
     padding: 0 16px;
 }
-
+.Information_bill{
+    width: 100%;
+}
 .actcart button:hover {
     background-color: black;
     color: white;

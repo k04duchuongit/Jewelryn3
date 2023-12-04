@@ -9,6 +9,7 @@ if (isset($_SESSION['role'])) {
         include '../model/sanpham.php';
         include '../model/bosuutap.php';
         include '../model/contact_user.php';
+        include '../model/donhang.php';
         include '../model/taikhoan/taikhoan.php';
         include '../global.php';
         include './header.php';
@@ -18,6 +19,7 @@ if (isset($_SESSION['role'])) {
             $act = $_GET['act'];
             switch ($act) {
                 case "quanlydonhang":
+                    $list_bill = queryAll_bill();
                     include 'donhang/quanlydonhang.php';
                     break;
                 case "themsanpham":

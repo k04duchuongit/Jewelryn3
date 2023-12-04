@@ -1,6 +1,6 @@
 <div class="main">
     <div class="grid wide">
-        <form action="">
+        <form action="index.php?act=dathang" method="POST">
             <div class="row wrap_order">
                 <div class="col l-8">
                     <div class="buyerinformation">
@@ -14,23 +14,23 @@
                             <input type="text" placeholder="Email của bạn" class="payemail" value="<?php if (isset($_SESSION['email_login'])) {
                                                                                                         echo $_SESSION['email_login'];
                                                                                                     } ?>">
-                            <input type="text" placeholder="Số điện thoại của bạn" class="paysdt" value="<?php if (isset($_SESSION['sdt_login'])) {
+                            <input type="text" placeholder="Số điện thoại của bạn" class="paysdt" name="paysdt" value="<?php if (isset($_SESSION['sdt_login'])) {
                                                                                                                 echo $_SESSION['sdt_login'];
                                                                                                             } ?>">
                         </div>
                         <h5 class="order-title">Địa chỉ nhận hàng</h5>
-                        <input type="text" placeholder="Địa chỉ nhận hàng">
-                        <input type="text" placeholder="Địa chỉ chi tiết">
+                        <input type="text" placeholder="Địa chỉ nhận hàng" name="payaddress">
+                        <input type="text" placeholder="Địa chỉ chi tiết" name="detail_payaddress">
                         <h5 class="order-title">Hình thức thanh toán</h5>
                         <div class="payinformation">
                             <div class="payment">
-                                <input type="radio" name="payinformation" id="">
+                                <input type="radio" name="payinformation" id="" value="1">
                                 <label for="payinformation">
                                     Thanh toán tiền mặt khi nhận hàng (COD)
                                 </label>
                             </div>
                             <div class="payment">
-                                <input type="radio" name="payinformation" id="">
+                                <input type="radio" name="payinformation" id="" value="2">
                                 <label for="payinformation">
                                     Thanh toán bằng thẻ tín dụng
                                 </label>
@@ -41,7 +41,7 @@
                 <div class="col l-4">
                     <div class="billinformation">
                         <h5 class="order-title">Thông tin đơn hàng</h5>
-                        <table>
+                        <table class="Information_bill">
                             <tr>
                                 <th>Sản phẩm</th>
                                 <th>Số lượng</th>
@@ -71,7 +71,9 @@
                                 <td><?= $tong_tien ?>vnđ </td>
                             </tr>
                         </table>
-                        <button type="submit" class="ordered">Đặt mua</button>
+                        <input type="hidden" name="orderstatus" value="1">
+                        <input type="hidden" name="totalbill" value=<?= $tong_tien ?>>
+                        <button type="submit" class="ordered" name="order_bill">Đặt mua</button>
                     </div>
                 </div>
             </div>
