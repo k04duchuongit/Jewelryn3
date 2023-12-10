@@ -4,33 +4,18 @@
             <div class="listproduct-title css-content">
                 <h3 class="h3_title">HER STYLE</h3>
             </div>
-            <form class="searcg_prd">
-                <select class="producttype">
-                    <option value="">Loại sản phẩm</option>
-                    <option value="">Loại sản phẩm</option>
-                    <option value="">Loại sản phẩm</option>
-                </select>
-                <select class="productprice">
+            <form action="index.php" class="search_prd" method="GET">
+                <input type="hidden" name="act" value="listsanpham">
+                <input type="text" placeholder="Nhập tên sản phẩm" class="productpricex" name="namesearch_prd">
+                <select class="productprice" name="pricesearch_prd">
                     <option value="">Giá</option>
-                    <option value="">Dưới 1 triệu</option>
-                    <option value="">1 triệu - 2 triệu</option>
-                    <option value="">2 triệu - 4 triệu</option>
-                    <option value="">4 triệu - 7 triệu</option>
-                    <option value="">Trên 7 triệu</option>
+                    <option value="1">Dưới 1 triệu</option>
+                    <option value="2">1 triệu - 2 triệu</option>
+                    <option value="3">2 triệu - 4 triệu</option>
+                    <option value="4">4 triệu - 7 triệu</option>
+                    <option value="5">Trên 7 triệu</option>
                 </select>
-                <select class="productcolor">
-                    <option value="">Màu chất liệu</option>
-                    <option value="">Vàng</option>
-                    <option value="">Vàng trắng</option>
-                    <option value="">Vàng hồng</option>
-                    <option value="">Mix Match</option>
-                </select>
-                <select class="productsex">
-                    <option value="">Giới tính</option>
-                    <option value="">Nam</option>
-                    <option value="">Nữ</option>
-                    <option value="">Unisex</option>
-                </select>
+                <button type="submit" class="productpricey">Tìm kiếm</button>
             </form>
             <div class="listproduct-content row">
                 <?php

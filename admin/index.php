@@ -18,8 +18,22 @@ if (isset($_SESSION['role'])) {
         if (isset($_GET['act']) && $_GET['act'] != '') {
             $act = $_GET['act'];
             switch ($act) {
+                case "capnhattrangthai_donhang":
+                    $id_hoadon = $_POST['id_hoadon'];
+                    $status = $_POST['status'];
+                    if (isset($_POST['status'])) {
+                        echo "ok";
+                        updatestt($id_hoadon, $status);
+                        header("Location: index.php?act=quanlydonhang");
+                    }
+                    include 'donhang/quanlydonhang.php';
+                    break;
                 case "quanlydonhang":
-                    $list_bill = queryAll_bill();
+                    if (isset($_GET['nameprd_searchz'])) {
+                        $list_bill = queryAll_bill($_GET['nameprd_searchz']);
+                    } else {
+                        $list_bill = queryAll_bill('');
+                    }
                     include 'donhang/quanlydonhang.php';
                     break;
                 case "themsanpham":
@@ -27,7 +41,7 @@ if (isset($_SESSION['role'])) {
                     $listchatlieu = query_chatlieu();
                     $listbosuutap = query_bosuutap('');
                     $list_size = querry_size();
-                    include 'sanpham/themsanpham.php';
+
                     if (isset($_POST['themmoisanpham'])) {
                         //bien the size san pham
                         $size_sanphams = list_size_focus($list_size);
@@ -77,7 +91,7 @@ if (isset($_SESSION['role'])) {
                     break;
 
                 case "suasanpham_update":
-                    $listsanpham = query_sanpham();
+                    $listsanpham = query_sanpham('');
                     $list_size = querry_size();
                     $prd_edit = query_one_anhsp($_GET['ma_sp']);
                     if (isset(($_POST['suasansanpham']))) {
@@ -125,13 +139,19 @@ if (isset($_SESSION['role'])) {
                     break;
 
                 case "quanlysanpham":
-                    $listsanpham = query_sanpham();
+                    if (isset($_POST['submit'])) {
+                        $admin_name_searchprd = $_POST['admin_name_searchprd'];
+                        $listsanpham = query_sanpham($admin_name_searchprd);
+                    } else {
+                        $listsanpham = query_sanpham('');
+                    }
+
                     $list_img = anh_sanpham();
                     include 'sanpham/quanlysanpham.php';
                     break;
 
                 case "xoasanpham":
-                    $listsanpham = query_sanpham();
+                    $listsanpham = query_sanpham('');
                     $code_sp = $_GET['code_sp'];
                     delete_prd($code_sp);
                     delete_size_product($code_sp, '');
@@ -153,11 +173,39 @@ if (isset($_SESSION['role'])) {
                     include 'sanpham/thungrac.php';
                     break;
 
-
-
                 case "quanlytaikhoan":
-                    $list_acc =  querry_all_account();
+                    if (isset($_GET['sdt_user'])) {
+                        $list_acc =  querry_all_account($_GET['sdt_user']);
+                    } else {
+                        $list_acc =  querry_all_account('');
+                    }
                     include 'taikhoan/quanlytaikhoan.php';
+                    break;
+
+                case "suataikhoan_list":
+                    $acc =  querry_one_account($_GET['id_user']);
+                    include "taikhoan/suataikhoan.php";
+                    break;
+
+                case "suataikhoan_update":
+                    if (isset($_POST['confirm_update_acc'])) {
+                        echo "ok";
+                        $id_user = $_POST['id_user'];
+                        $name_edit = $_POST['name_edit'];
+                        $sdt_edit = $_POST['sdt_edit'];
+                        $diachi_edit = $_POST['diachi_edit'];
+                        $email_edit = $_POST['email_edit'];
+                        update_acc_user($id_user, $name_edit, $sdt_edit, $diachi_edit, $email_edit);
+                        header("Location: index.php?act=quanlytaikhoan");
+                    }
+                    include "taikhoan/suataikhoan.php";
+                    break;
+                case "xoataikhoan":
+                    if (isset($_GET['id_user'])) {
+                        // detele_acc($_GET['id_user']);
+                        header("Location: index.php?act=quanlytaikhoan");
+                    }
+                    include "taikhoan/suataikhoan.php";
                     break;
                 case "dangxuat":
                     session_unset();
@@ -216,16 +264,13 @@ if (isset($_SESSION['role'])) {
 
                 case "themtintuc":
                     include 'tintuc/themtintuc.php';
-
                     break;
-
-
                 case "suatintuc":
                     include 'tintuc/suatintuc.php';
                     break;
 
                 case "quanlycontact":
-                    $list_contact = querry_all_contact();
+                    $list_contact = querry_all_contact($_GET['sdt_search']);
                     include 'contact/quanlycontact.php';
                     break;
             }

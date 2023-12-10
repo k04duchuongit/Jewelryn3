@@ -1,40 +1,21 @@
 <div class="main-admin">
     <div class="action_admin grid wide">
         <p class="adminaction_title">Quản Lý Sản Phẩm</p>
-        <form action="">
-            <input type="text" placeholder="Nhập tên sản phẩm" class="nameprd_searchz">
-            <select name="" id="">
-                <option value="">Chất liệu</option>
-                <option value="">Vàng</option>
-                <option value="">Kim cương</option>
-                <option value="">Đá & ngọc trai</option>
-            </select>
-            <select>
-                <option value="">Giá</option>
-                <option value="">Dưới 1 triệu</option>
-                <option value="">1 triệu - 2 triệu</option>
-                <option value="">2 triệu - 4 triệu</option>
-                <option value="">4 triệu - 7 triệu</option>
-                <option value="">Trên 7 triệu</option>
-            </select>
-            <div class="admin_timeprd">
-                <input type="date">
-                <p>đến</p>
-                <input type="date">
-            </div>
-            <button type="submit" class="admin_ordered">Tìm Kiếm</button>
+        <form action="index.php?act=quanlysanpham" method="POST">
+            <input type="text" placeholder="Nhập tên sản phẩm" class="nameprd_searchz"  name="admin_name_searchprd">
+            <button type="submit" class="admin_ordered" name="submit">Tìm Kiếm</button>
         </form>
         <div class="admin_addinformation">
             <a href="./index.php?act=themsanpham">Thêm sản phẩm</a>
             <div>
-            <a href="./index.php">Trỏ về trang chủ</a>
-            <a href="./index.php?act=thungrac_prd">Thùng rác</a>
+                <a href="./index.php">Trỏ về trang chủ</a>
+                <a href="./index.php?act=thungrac_prd">Thùng rác</a>
             </div>
         </div>
         <table class="table_admin">
             <tr>
                 <th class="table_admin-id">
-                  Mã Sản phẩm
+                    Mã Sản phẩm
                 </th>
                 <th class="table_admin-img">
                     Hình ảnh

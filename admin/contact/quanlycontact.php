@@ -1,13 +1,9 @@
 <div class="main">
     <div class="action_admin grid wide">
         <p class="adminaction_title">Quản Lý Phản Hồi Người Dùng</p>
-        <form action="">
-            <input type="text" placeholder="Nhập sô điện thoại" class="nameprd_searchz">
-            <div class="admin_timeprd">
-                <input type="date">
-                <p>đến</p>
-                <input type="date">
-            </div>
+        <form action="index.php" method="GET">
+            <input type="hidden" value="quanlycontact" name="act">
+            <input type="text" placeholder="Nhập sô điện thoại" class="nameprd_searchz" name="sdt_search">
             <button type="submit" class="admin_ordered">Tìm Kiếm</button>
             <a href="index.php" class="repage_control">Quay về trang chủ</a>
         </form>

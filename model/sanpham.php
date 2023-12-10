@@ -12,7 +12,11 @@ function query_loai_mathang()
     $listmathang = pdo_query($sql);
     return $listmathang;
 }
-
+function update_after_order($masp, $soluong_tonkho)
+{
+    $sql = "UPDATE sanpham SET soluong_tonkho=$soluong_tonkho WHERE ma_sp = '$masp'";
+    pdo_execute($sql);
+}
 function query_mathang()
 {
     $sql = "SELECT * FROM mathang";
@@ -70,9 +74,14 @@ function load_sanpham_img_home($ma_sp)
 }
 
 //query_sanpham
-function query_sanpham()
+function query_sanpham($admin_name_searchprd)
 {
-    $sql = "SELECT * FROM sanpham WHERE role_prd=0";
+    if (!empty($admin_name_searchprd)) {
+        $sql = "SELECT * FROM sanpham WHERE role_prd=0 AND ten_sp LIKE '%$admin_name_searchprd%'";
+    } else {
+        $sql = "SELECT * FROM sanpham WHERE role_prd=0";
+    }
+
     $list_prd = pdo_query($sql);
     return $list_prd;
 }

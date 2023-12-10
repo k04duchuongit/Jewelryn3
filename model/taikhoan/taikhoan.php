@@ -2,15 +2,19 @@
 //querry one acc
 function querry_one_account($id_user)
 {
-    $sql = " SELECT * FROM nguoidung WHERE $id_user";
+    $sql = " SELECT * FROM nguoidung WHERE id_nguoidung = $id_user";
     $listaccount = pdo_query_one($sql);
     return $listaccount;
 }
 
 //query all acc
-function querry_all_account()
+function querry_all_account($sdt_user)
 {
-    $sql = " SELECT * FROM nguoidung ";
+    if(empty($sdt_user)){
+        $sql = "SELECT * FROM nguoidung";
+    } else {
+        $sql = "SELECT * FROM nguoidung WHERE sodienthoai LIKE '%$sdt_user%'";
+    }
     $listaccount = pdo_query($sql);
     return $listaccount;
 }

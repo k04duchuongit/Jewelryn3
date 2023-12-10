@@ -19,6 +19,10 @@ header {
     width: 100%;
 }
 
+.gridwideaset{
+    width: 1440px;
+    margin: 0 auto;
+}
 .main {
     padding-top: 110px;
 }
@@ -1488,7 +1492,9 @@ footer {
 .table_admin-address {
     width: 380px;
 }
-
+.table_admin-detail__click:hover .detail__bill-wrap{
+        display: block;
+}
 .table_admin-phone {
     width: 230px;
 }
@@ -1496,12 +1502,27 @@ footer {
 .table_admin-sumprice {
     width: 180px;
 }
-
+.productpricex{
+    padding: 6px 10px;
+    width: 240px;
+    color: var(--color30);
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 6px;
+}
+.productpricey{
+    padding: 6px 10px;
+    color: var(--color30);
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 6px;
+}
 .detail__bill tr th,
 .detail__bill tr td {
     padding: 6px 0;
 }
-
+.formstt{
+    margin: 0 !important;
+    display: block !important;
+}
 .detail__bill-prdimg img {
     width: 160px;
     height: 160px;
@@ -1644,7 +1665,22 @@ table tr .admin-content_news {
     border-radius: 4px;
 
 }
-
+.button_status{
+    padding: 6px 14px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 8px;
+   
+}
+.list_act_admin{
+width: 300px;
+}
+.list_act_admin a{
+    text-decoration: none;
+    color: black;
+    font-family: var(--font_NunitoSans);
+    
+    }
 .admin_updateprd {
     background-color: rgb(107, 165, 0);
 }

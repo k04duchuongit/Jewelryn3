@@ -101,6 +101,9 @@ if (is_array($one_prd_detail) && is_array($img_one_prd)) {
                                     <button class="product_addcart">
                                         <a href="">Thêm vào giỏ</a>
                                     </button>
+                                    <div class="iconsearchprd">
+                                            <a href="index.php?act=chitietsanpham&ma_sp=<?= $ma_sp ?>"><i class="ti-search"></i></a>
+                                        </div>
                                 </div>
                                 <p class="product_name"><?= $ten_sp ?></p>
                                 <p class="product_price"><?= $gia_sp ?> vnđ</p>

@@ -83,7 +83,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $list_prd_incart =   querry_content_cart($_SESSION['id_user']);
                 // echo "<pre>";
                 // print_r($list_prd_incart);
-
                 if (isset($_POST['order_bill'])) {
                     $id_hoadon = random_code_bill();
                     $id_nguoidung = $_SESSION['id_user'];
@@ -101,6 +100,8 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                         $so_luong = $prd['soluong_sp'];
                         $id_size = $prd['id_size'];
                         add_chitiehoadon($id_hoadon, $ma_sp, $so_luong, $id_size);
+                        $soluong_tonkho = $prd['soluong_tonkho'] -  $so_luong;
+                        update_after_order($ma_sp,$soluong_tonkho);
                     }
                     delete_ALLprd_incart();
                     header('Location: index.php?act=dathang');

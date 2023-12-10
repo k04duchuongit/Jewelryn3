@@ -15,7 +15,7 @@ function querry_cart_user($id_user)
 
 function querry_content_cart($ma_nguoi_dung)
 {
-    $sql = "SELECT anhsanpham.anhsp1, sanpham.ten_sp,sanpham.gia_sp, giohang.* FROM giohang
+    $sql = "SELECT anhsanpham.anhsp1, sanpham.ten_sp, sanpham.soluong_tonkho,sanpham.gia_sp, giohang.* FROM giohang
         JOIN sanpham ON giohang.ma_sp = sanpham.ma_sp
         JOIN anhsanpham ON sanpham.ma_sp = anhsanpham.ma_sp 
         WHERE ma_nguoidung = '$ma_nguoi_dung'";
