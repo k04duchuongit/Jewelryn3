@@ -26,6 +26,10 @@ header {
 .main {
     padding-top: 110px;
 }
+.mess_err{
+    color: red;
+    padding: 0;
+}
 
 .main-admin {
     padding-top: 50px !important;

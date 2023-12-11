@@ -40,7 +40,7 @@ function queryAll_bill($nameprd_searchz)
     if (empty($nameprd_searchz)) {
         $sql = "SELECT * FROM hoadon";
     } else {
-        $sql = "SELECT * FROM hoadon WHERE sodienthoai LIKE '%$nameprd_searchz%'";
+        $sql = "SELECT * FROM hoadon WHERE sodienthoai LIKE '%$nameprd_searchz%' ";
     }
 
     $list_bill = pdo_query($sql);

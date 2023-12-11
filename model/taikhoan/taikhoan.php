@@ -27,6 +27,10 @@ function update_acc_user($id_user, $name_edit, $sdt_edit, $diachi_edit, $email_e
     pdo_execute($sql);
 }
 
+function detele_acc($id_user){
+    $sql = "DELETE FROM nguoidung WHERE id_nguoidung = '$id_user'";
+    pdo_execute($sql);
+}
 
 // random mã người dùng chưa đăng nhập
 
@@ -46,4 +50,12 @@ function random_codeUser_noLogin()
 
     $codeUser_noLogin = 'UNLOG' . generateRandomString(10);
     return $codeUser_noLogin;
+}
+
+//validate password
+
+function validatePassword($name_user){
+    $sql = "SELECT nguoidung.matkhau FROM nguoidung WHERE tendangnhap = '$name_user'";
+    $kq = pdo_query_one($sql);
+    return $kq;
 }

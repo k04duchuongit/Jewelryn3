@@ -113,8 +113,8 @@ if (is_array($one_prd_detail) && is_array($img_one_prd)) {
                     ?>
                 </div>
                 <div class="listproduct_block1__buttonnext">
-                    <button><a href="">Xem thêm</a></button>
-                </div>
+                <button><a href="index.php?act=listsanpham">Xem thêm</a></button>
+            </div>
             </div>
         </div>
     </div>

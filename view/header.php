@@ -7,6 +7,7 @@ if (isset($_SESSION['id_user'])) {
     $list_prd_incart = querry_cart_user($_SESSION['id_user']);
     // echo "<pre>";
     // print_r($_SESSION['id_user']);
+    $quantityprd_incart = count($list_prd_incart);
 }
 ?>
 
@@ -65,7 +66,13 @@ if (isset($_SESSION['id_user'])) {
                     </div>
                     <div class="users_cart">
                         <i class="ti-shopping-cart">
-                            <p class="users_cart-quantity">6</p>
+                            <p class="users_cart-quantity"><?php 
+                            if(!empty($quantityprd_incart)){
+                                echo $quantityprd_incart;
+                            }else{
+                                echo '0';
+                            }
+                          ?></p>
                         </i>
                     </div>
                     <!-- CART -->
@@ -103,6 +110,9 @@ if (isset($_SESSION['id_user'])) {
                                         <?php }
                                     } else { ?>
                                         <p class="warning_nullincart">Giỏ hàng trống</p>
+                                        <div class="actcart">
+                                            <button class="backtohome"><p>Trở lại</p></button>
+                                        </div>
                                     <?php }
                                     ?>
                                 </li>
@@ -112,6 +122,7 @@ if (isset($_SESSION['id_user'])) {
                                 <div class="actcart">
                                     <button><a href="index.php?act=listgiohang">Xem giỏ hàng</a><i class="ti-shopping-cart"></i></button>
                                     <button><a href="">Đặt hàng ngay</a><i class="ti-bag"></i></button>
+                                    <button class="backtohome"><p>Trở lại</p></button>
                                 </div>
                             <?php   }
                             ?>

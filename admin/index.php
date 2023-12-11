@@ -174,7 +174,7 @@ if (isset($_SESSION['role'])) {
                     break;
 
                 case "quanlytaikhoan":
-                    if (isset($_GET['sdt_user'])) {
+                    if (isset($_GET['sdt_user'])){
                         $list_acc =  querry_all_account($_GET['sdt_user']);
                     } else {
                         $list_acc =  querry_all_account('');
@@ -202,7 +202,7 @@ if (isset($_SESSION['role'])) {
                     break;
                 case "xoataikhoan":
                     if (isset($_GET['id_user'])) {
-                        // detele_acc($_GET['id_user']);
+                        detele_acc($_GET['id_user']);
                         header("Location: index.php?act=quanlytaikhoan");
                     }
                     include "taikhoan/suataikhoan.php";

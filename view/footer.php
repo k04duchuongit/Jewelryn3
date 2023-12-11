@@ -77,5 +77,18 @@
             carthidden.style.display = carthidden.style.display = 'block';
         });
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var backtohome = document.querySelector('.backtohome');
+        var carthidden = document.querySelector('.carthidden');
+
+        backtohome.addEventListener('click', function() {
+        
+            carthidden.style.display = 'none';
+        });
+    });
+
+
+
 </script>
 </html>

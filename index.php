@@ -34,26 +34,57 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             include 'view/bosuutap.php';
             break;
         case "dangnhap":
+            $listaccuser = querry_all_account('');
+            $listaccuser = array_column($listaccuser, 'tendangnhap');
             if (isset($_POST['dangnhap'])) {
-                $namesignin = $_POST['namesignin'];
-                $passsignin = $_POST['passsignin'];
-                $taikhoan = checkaccount_login($namesignin, $passsignin);
-                if (is_array($taikhoan)) {
-                    $role = $taikhoan['role'];
-                    if ($role == 1) {
-                        $_SESSION['role'] = $role;
-                        $_SESSION['name_login'] = $taikhoan['tendangnhap'];
-                        header('Location: admin/index.php');
-                        break;
-                    } else if ($role == 0) {
-                        $_SESSION['id_user'] = $taikhoan['id_nguoidung'];
-                        $_SESSION['name_login'] = $taikhoan['tendangnhap'];
-                        $_SESSION['pass_login'] = $taikhoan['matkhau'];
-                        $_SESSION['email_login'] = $taikhoan['email'];
-                        $_SESSION['sdt_login'] = $taikhoan['sodienthoai'];
-                        $_SESSION['diachi_login'] = $taikhoan['diachi'];
-                        header('Location: index.php');
+                $regexname_signin = '/^[a-zA-Z0-9]{6,16}$/';
+                $regexpass_signin = '/^(?=.*\d)[a-zA-Z0-9]{6,}$/';
+
+                if (preg_match($regexname_signin, $_POST['namesignin']) == 1) {
+                    if (!in_array($_POST['namesignin'], $listaccuser)) {
+                        $checkvalidate_signin['namesignin_unduplicate'] = 'Tài khoản không tồn tại';
+                    } else {
+                        $namesignin = $_POST['namesignin'];
+                        $check_pass =  validatePassword($namesignin);
+                        print_r($check_pass);
                     }
+                } else {
+                    $checkvalidate_signin['namesignin'] = 'Tên đăng nhập phải từ 6-16 ký tự';
+                }
+
+
+                if (preg_match($regexname_signin, $_POST['passsignin']) == 1) {
+                    if (isset($check_pass['matkhau']) && $check_pass['matkhau'] == $_POST['passsignin']) {
+                        $passsignin = $_POST['passsignin'];
+                    } else {
+                        $checkvalidate_signin['checkpasssignin'] = 'Sai mật khẩu';
+                    }
+                } else {
+                    $checkvalidate_signin['passsignin'] = 'Mật khẩu phải ít nhất 6 ký tự và có ít nhất 1 số';
+                }
+
+                if (empty($checkvalidate_signin)) {
+                    $taikhoan = checkaccount_login($namesignin, $passsignin);
+                    if (is_array($taikhoan)) {
+                        $role = $taikhoan['role'];
+                        if ($role == 1) {
+                            $_SESSION['role'] = $role;
+                            $_SESSION['name_login'] = $taikhoan['tendangnhap'];
+                            header('Location: admin/index.php');
+                            break;
+                        } else if ($role == 0) {
+                            $_SESSION['id_user'] = $taikhoan['id_nguoidung'];
+                            $_SESSION['name_login'] = $taikhoan['tendangnhap'];
+                            $_SESSION['pass_login'] = $taikhoan['matkhau'];
+                            $_SESSION['email_login'] = $taikhoan['email'];
+                            $_SESSION['sdt_login'] = $taikhoan['sodienthoai'];
+                            $_SESSION['diachi_login'] = $taikhoan['diachi'];
+                            header('Location: index.php');
+                        }
+                    }
+                } else {
+                    include 'view/dangnhapdangky.php';
+                    break;
                 }
             }
             include 'view/dangnhapdangky.php';
@@ -65,14 +96,40 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             break;
 
         case "dangky":
+            $listaccuser = querry_all_account('');
+            $listaccuser = array_column($listaccuser, 'tendangnhap');
             if (isset($_POST['dangky'])) {
-                $namesignup = $_POST['namesignup'];
-                $passsignup = $_POST['passsignup'];
+                $checkvalidate_signup = [];
+                $regexname_signup = '/^[a-zA-Z0-9]{6,16}$/';
+                $regexpass_signup = '/^(?=.*\d)[a-zA-Z0-9]{6,}$/';
+                if (preg_match($regexname_signup, $_POST['namesignup']) == 1) {
+                    if (in_array($_POST['namesignup'], $listaccuser)) {
+                        $checkvalidate_signup['namesignup_duplicate'] = 'Tài khoản đã tồn tại';
+                    } else {
+                        $namesignup = $_POST['namesignup'];
+                    }
+                } else {
+                    $checkvalidate_signup['namesignup'] = 'Tên đăng nhập phải từ 6-16 ký tự';
+                }
+                if (preg_match($regexpass_signup, $_POST['passsignup']) == 1) {
+                    $passsignup = $_POST['passsignup'];
+                } else {
+                    $checkvalidate_signup['passsignup'] = 'Mật khẩu phải ít nhất 6 ký tự và có ít nhất 1 số';
+                }
+
+                if ($_POST['repasssignup'] != $_POST['passsignup']) {
+                    $checkvalidate_signup['repasssignup'] = 'Mật khẩu không trùng';
+                }
                 $sdtsignup = $_POST['sdtsignup'];
                 $emailsignup = $_POST['emailsignup'];
-                create_account($namesignup, $passsignup, $sdtsignup, $emailsignup);
-                header('Location: index.php');
-                break;
+
+                if (empty($checkvalidate_signup)) {
+                    create_account($namesignup, $passsignup, $sdtsignup, $emailsignup);
+                    header('Location: index.php');
+                } else {
+                    include 'view/dangnhapdangky.php';
+                    break;
+                }
             }
             include 'view/dangnhapdangky.php';
             break;
@@ -93,7 +150,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                     $diachi_nguoidung = $_POST['payaddress'];
                     $ct_diachi_nguoidung = $_POST['detail_payaddress'];
                     $paysdt = $_POST['paysdt'];
-                    add_hoadon($id_hoadon, $id_nguoidung, $ngaytaohoadon, $hinhthuc_thanhtoan, $giatri_hoadon,$trangthai_donhang,$diachi_nguoidung,$ct_diachi_nguoidung, $paysdt);
+                    add_hoadon($id_hoadon, $id_nguoidung, $ngaytaohoadon, $hinhthuc_thanhtoan, $giatri_hoadon, $trangthai_donhang, $diachi_nguoidung, $ct_diachi_nguoidung, $paysdt);
 
                     foreach ($list_prd_incart as $key => $prd) {
                         $ma_sp = $prd['ma_sp'];
@@ -101,7 +158,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                         $id_size = $prd['id_size'];
                         add_chitiehoadon($id_hoadon, $ma_sp, $so_luong, $id_size);
                         $soluong_tonkho = $prd['soluong_tonkho'] -  $so_luong;
-                        update_after_order($ma_sp,$soluong_tonkho);
+                        update_after_order($ma_sp, $soluong_tonkho);
                     }
                     delete_ALLprd_incart();
                     header('Location: index.php?act=dathang');
